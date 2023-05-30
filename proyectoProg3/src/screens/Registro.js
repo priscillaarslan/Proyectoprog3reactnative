@@ -11,10 +11,11 @@ class Registro extends Component {
             nombre:'',
             biografia:'',
             foto:'',
+            errores:''
             }
     }
-    registrar(emial,contraseña,nombre,biografia) {
-        auth.createUserWithEmailAndPassword(email, pass)
+    registrar(email,contraseña,nombre,biografia) {
+        auth.createUserWithEmailAndPassword(email, contraseña)
         .then(res => {
             db.collection("users").add({
                 email: email,
@@ -38,7 +39,7 @@ class Registro extends Component {
         })
         .catch(error =>
             this.setState({
-                errors: `Tienes un error: ${error.message}`
+                errores: `Tienes un error: ${error.message}`
             })
         )
     }
@@ -69,6 +70,7 @@ class Registro extends Component {
              onChangeText={texto=>this.setState({biografia:texto})}
              value= {this.state.biografia}
              />
+             <Text>{this.state.errores}</Text>
            {
             this.state.email == '' || this.state.contraseña == ''|| this.state.nombre == '' ?
            < TouchableOpacity>
@@ -78,7 +80,7 @@ class Registro extends Component {
               <Text> Registrarme </Text>
             </TouchableOpacity>
            }
-
+<Text onPress={() => this.props.navigation.navigate("Login")}> Ya tienes cuenta. Anda al login</Text>
          </View>
        
         )
