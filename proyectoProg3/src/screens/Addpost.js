@@ -14,8 +14,24 @@ class Addpost extends Component {
     }
     
     CrearPosteo(){
-        db.collection /*/ db hace referencia a la base de datos y collection hace referencia a las colecciones a la base de datos/*/
-    }
+        db.collection('posteos').add({  /*/.add, para agregar en firebase, es propio de firebase/*/
+      Usuario: auth.currentUser.email,
+      Titulo: this.state.Titulo, 
+      Descripcion: this.state.Descripcion,
+      Likes:[],
+      Comentarios:[],
+      Foto: this.state.Foto,
+      CreatedAt: Date.now(),
+        }) .then(()=>{
+          this.props.navigation.navigate('Home')
+        })
+        .catch(error =>
+          this.setState({
+              errores: `Tienes un error: ${error.message}`
+          })
+      )
+        /*/ db hace referencia a la base de datos y collection hace referencia a las colecciones a la base de datos/*/
+    } 
  
     render(){
         return(
