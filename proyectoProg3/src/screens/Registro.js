@@ -14,6 +14,13 @@ class Registro extends Component {
             errores:''
             }
     }
+    componentDidMount() {
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                this.props.navigation.navigate("NavegadorLogueado")
+            }
+        })
+    }
     registrar(email,contraseña,nombre,biografia) {
         auth.createUserWithEmailAndPassword(email, contraseña)
         .then(res => {

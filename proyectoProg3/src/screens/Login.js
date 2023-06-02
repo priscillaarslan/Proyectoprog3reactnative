@@ -29,7 +29,7 @@ class Login extends Component {
                 errores: "",
              
             })
-            this.props.navigation.navigate("Home")
+            this.props.navigation.navigate("NavegadorLogueado")
                
         })
         .catch(error =>

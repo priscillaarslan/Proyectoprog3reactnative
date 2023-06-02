@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Registro from '../screens/Registro';
 import Login from '../screens/Login';
 import {NavigationContainer} from "@react-navigation/native"
-import Home from '../screens/Home';
+import NavegadorLogueado from './Navegadorlogueado';
 
 const Stack = createNativeStackNavigator();
 class Navegador extends Component {
@@ -13,7 +13,7 @@ class Navegador extends Component {
             <Stack.Navigator>
             <Stack.Screen name='Registro' component={Registro} options={{ headerShown: false }} />
             <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
-            <Stack.Screen name='Home' component={Home} options={{ headerShown: false }} />
+            <Stack.Screen name='NavegadorLogueado' component={NavegadorLogueado} options={{ headerShown: false }} />
         </Stack.Navigator>
         </NavigationContainer>
         )
