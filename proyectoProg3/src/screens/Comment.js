@@ -55,6 +55,7 @@ class Comment extends Component {
         return(
             <View>
                 <Text>Pagina de comentarios</Text>
+                <Text onPress={() => this.props.navigation.navigate("Home")}>Volver al home</Text>
                 <Text>Los comentarios a este posteo son :</Text>
                 {
                     this.state.comentarios.length==0? <View>
