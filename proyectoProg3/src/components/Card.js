@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList} from 'react-native'; 
+import { View, Text, TouchableOpacity} from 'react-native'; 
 import {auth, db} from '../firebase/config';
-
+import firebase from 'firebase';
+import "firebase/firestore";
 
 
 class Card extends Component {
@@ -14,7 +15,19 @@ class Card extends Component {
 
     }
     componentDidMount(){ 
-      
+        let Likes = this.props.data.data.Likes;
+           // este let tiene los mails de las personas que le dieron like en forma de array//
+        if  (Likes.includes(auth.currentUser.email) // si el array incluye el mail del usuario que tenemos iniciado, decalara likeado como true//
+        ) {
+            this.setState({
+                likeado: true
+            })
+        }
+        else {
+            this.setState({
+                likeado: false // si no tiene iniciacdo, mantiene likeado como false//
+            })
+        } 
     }
     like(){
         // el doc. entra al posteo individual, data.id esta antes de la data//
@@ -23,10 +36,24 @@ class Card extends Component {
        if (this.state.likeado) {
         // update metodo de firebase para actualizar elementos de una coleccion de forma individual//
         posteo.update({
-            
+            Likes: firebase.firestore.FieldValue.arrayRemove(auth.currentUser.email)
+            // el remove saca de la cadena el mail del usuario que le dio like. De alguna manera el like es un email//
+        })
+        .then(() => {
+            this.setState({
+                likeado: false,
+            })
         })
        } else {
-        
+        posteo.update({
+            Likes: firebase.firestore.FieldValue.arrayUnion(auth.currentUser.email)
+            //Likes lo creamos como un array vacio, cuando le das like y hace un array Union y agarra el email del usuario a likes del posteo//
+        })
+        .then(() => {
+            this.setState({
+                likeado: true,
+            })
+        })
        }
     }
 
@@ -37,16 +64,16 @@ class Card extends Component {
 
   
     render(){
-          
+        console.log(this.props.data.data.Likes.length);   
         return(
             <View>
                 <Text>Titulo del posteo: {this.props.data.data.Titulo}</Text>
                 <Text>Descripcion del posteo: {this.props.data.data.Descripcion}</Text>
                 <Text>Likes: {this.props.data.data.Likes.length}</Text>
                 {this.state.likeado ? <TouchableOpacity onPress={() => this.like()}>
-                              <Text>Likear</Text>
+                              <Text>Deslikear</Text>
                      </TouchableOpacity> : <TouchableOpacity onPress={() => this.like()}>
-                                    <Text>Deslikear</Text>
+                                    <Text>Likear</Text>
                 </TouchableOpacity>} 
          </View>
        
