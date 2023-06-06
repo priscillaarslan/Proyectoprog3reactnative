@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, FlatList} from 'react-native'; 
 import {auth, db} from '../firebase/config';
+import Card from '../components/Card';
 
 
 
@@ -13,7 +14,7 @@ class Home extends Component {
 
     }
     componentDidMount(){ 
-        console.log('estamos aca')
+       // agarra de firebase todos los psoteos//
         db.collection("posteos").onSnapshot((docs) => {  /*/ el onsnapchot es para que agarre lo que haya (captura la coleccion de posteos), el docs tiene todos los posteos/*/
         let posteos = []
         console.log(docs)
@@ -43,7 +44,7 @@ class Home extends Component {
             <View>
                 <Text>Soy la pagina del Home</Text>
                 <Text>Nuevos posts: </Text>
-                <FlatList data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=><Text>Titulo del posteo: {item.data.Titulo}</Text>}
+                <FlatList data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
                 >
                     
                 </FlatList>
