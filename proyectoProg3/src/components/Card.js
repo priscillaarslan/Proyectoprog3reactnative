@@ -10,6 +10,8 @@ class Card extends Component {
         super(props)
         this.state = {
              likeado:false,
+             comment:false
+
 
             }
 
@@ -75,6 +77,9 @@ class Card extends Component {
                      </TouchableOpacity> : <TouchableOpacity onPress={() => this.like()}>
                                     <Text>Likear</Text>
                 </TouchableOpacity>} 
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Comment',{id:this.props.data.id})}>  {/*hacemos esto para que me traiga los comentarios de un solo posteo*/}
+                                    <Text>Ver comentarios</Text>
+                </TouchableOpacity>
          </View>
        
           
