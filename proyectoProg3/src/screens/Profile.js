@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList} from 'react-native'; 
+import { View, Text, FlatList,TouchableOpacity} from 'react-native'; 
 import {auth, db} from '../firebase/config';
 import Card from '../components/Card';
 
@@ -11,7 +11,8 @@ class Profile extends Component {
         this.state = {
         post:[],
         usuario: [], 
-
+        borrar: false,
+        errorAlEliminar:false,
             }
 
     }
@@ -45,6 +46,17 @@ class Profile extends Component {
     })
        
     }
+    eliminarPerfil(){
+        auth.currentUser.delete()
+        .then(()=> {
+            this.props.navigation.navigate('Registro')
+        })
+        .catch(()=>{
+            this.setState({
+                errorAlEliminar: true
+            })
+        })
+    }
 
 
 
@@ -62,14 +74,22 @@ class Profile extends Component {
                 <Text>Bienvenido {this.state.usuario[0]?.data.email} tambien conocido como {this.state.usuario[0]?.data.nombre}</Text>
                 <Text>Biografia: {this.state.usuario[0]?.data.biografia} </Text>
                 <Text>Cantidad total de posteos:{this.state.post?.length} </Text>
-                <Text>:{this.state.post?.length} </Text>
-                <FlatList data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
+                <Text>Estos son tus posteos : </Text>
+                {this.state.post?.length==0?<Text>Aun no hay posteos, subi alguno</Text>:  <FlatList data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
                 >
                     
-                </FlatList> 
+                </FlatList> }
+              
                 
                
                 <Text onPress={() => this.deslogueate()}> Deslogueate </Text>
+                <TouchableOpacity onPress={() => this.setState({ borrar: true })}> <Text> Eliminar perfil </Text> </TouchableOpacity>
+                    {this.state.borrar == false ? <Text> </Text> : <> <Text> Estas seguro que quieres eliminar el perfil, es permanente!</Text>
+                        <TouchableOpacity onPress={() => this.eliminarPerfil()}> <Text> Si eliminar </Text> </TouchableOpacity>
+                        <TouchableOpacity onPress={() => this.setState({ borrar: false })}> <Text> No eliminar </Text> </TouchableOpacity> </>}
+
+                    
+                    {this.state.errorAlEliminar == false ? <Text> </Text> :  <Text> Esta es una operación sensible, volvé a iniciar sesión para eliminar tu perfil</Text>}
          </View>
        
           
