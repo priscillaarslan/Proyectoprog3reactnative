@@ -32,10 +32,7 @@ class Home extends Component {
 
 
 
-    deslogueate() {
-        auth.signOut()
-        this.props.navigation.navigate('Login')
-    }
+   
 
   
     render(){
@@ -48,7 +45,7 @@ class Home extends Component {
                 >
                     
                 </FlatList>
-                <Text onPress={() => this.deslogueate()}> Deslogueate </Text>
+               
          </View>
        
           
