@@ -69,6 +69,7 @@ class Card extends Component {
         console.log(this.props.data.data.Likes.length);   
         return(
             <View>
+              <Text>Autor: {this.props.data.data.Usuario}</Text>
                 <Text>Titulo del posteo: {this.props.data.data.Titulo}</Text>
                 <Text>Descripcion del posteo: {this.props.data.data.Descripcion}</Text>
                 <Text>Likes: {this.props.data.data.Likes.length}</Text>
