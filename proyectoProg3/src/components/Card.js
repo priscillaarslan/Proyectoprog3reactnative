@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity} from 'react-native'; 
+import { View, Text, TouchableOpacity, StyleSheet} from 'react-native'; 
 import {auth, db} from '../firebase/config';
 import firebase from 'firebase';
 import "firebase/firestore";
@@ -87,7 +87,11 @@ class Card extends Component {
         )
     }
 }
-
+ const styles = StyleSheet.create(
+    {
+        
+    }
+ )
 
 
 export default Card
