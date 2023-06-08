@@ -49,9 +49,13 @@ class Profile extends Component {
     eliminarPerfil(){
         auth.currentUser.delete()
         .then(()=> {
+            db.collection('users').doc(this.state.usuario.id).delete()
+        })
+        .then(()=> {
             this.props.navigation.navigate('Registro')
         })
-        .catch(()=>{
+        .catch((error)=>{
+            console.log(error);
             this.setState({
                 errorAlEliminar: true
             })
