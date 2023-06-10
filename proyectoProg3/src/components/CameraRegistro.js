@@ -4,15 +4,14 @@ import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 import { FontAwesome, Ionicons, AntDesign, Entypo, MaterialIcons } from '@expo/vector-icons';
 import { storage } from '../firebase/config';
 
-class MyCamera extends Component{
+class CameraRegistro extends Component{
     constructor(props){
         super(props);
         this.state = {
             props: props,
             permission: false,
             photo: '',
-            showCamera: false,
-            photoOK:false
+            showCamera: false
         }
     };
 
@@ -51,15 +50,14 @@ class MyCamera extends Component{
         fetch(this.state.photo)
          .then(res=>res.blob())
          .then(image =>{
-           const ref=storage.ref(`photos/${Date.now()}.jpg`)
+           const ref=storage.ref(`photosUsuarios/${Date.now()}.jpg`)
            ref.put(image)
                 .then(()=>{
                    ref.getDownloadURL()
                         .then(url => {
                             this.props.onImageUpload(url);
                             this.setState({
-                                photo:'',
-                                photoOK:true
+                                photo:''
                             })
                          })
                  })
@@ -102,9 +100,6 @@ class MyCamera extends Component{
                     </React.Fragment>
                     :
                     null
-                }
-                {
-                    this.state.photoOK? <Text>Muchas gracias por tu foto</Text>:<Text></Text>
                 }
             </View>
         )
@@ -156,4 +151,4 @@ const style = StyleSheet.create({
 })
 
 
-export default MyCamera;
+export default CameraRegistro;

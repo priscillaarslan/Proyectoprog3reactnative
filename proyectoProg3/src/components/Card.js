@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet} from 'react-native'; 
+import { View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native'; 
 import {auth, db} from '../firebase/config';
 import firebase from 'firebase';
 import "firebase/firestore";
@@ -71,6 +71,10 @@ class Card extends Component {
             <View>
               <Text>Autor: {this.props.data.data.Usuario}</Text>
                 <Text>Titulo del posteo: {this.props.data.data.Titulo}</Text>
+                {
+                    this.props.data.data.Foto == ''? <Text></Text>:
+                    <Image  style={styles.imagen} source={{uri:`${this.props.data.data.Foto}`}}  resizeMode='contain'      />
+                }
                 <Text>Descripcion del posteo: {this.props.data.data.Descripcion}</Text>
                 <Text>Likes: {this.props.data.data.Likes.length}</Text>
                 {this.state.likeado ? <TouchableOpacity onPress={() => this.like()}>
@@ -87,11 +91,15 @@ class Card extends Component {
         )
     }
 }
- const styles = StyleSheet.create(
-    {
-        
-    }
- )
+const styles = StyleSheet.create({
+    
+    imagen:{
+        width:"100%",
+        height:250,
+        alignContent:"center",
+        marginVertical:10,
+    },
+})
 
 
 export default Card

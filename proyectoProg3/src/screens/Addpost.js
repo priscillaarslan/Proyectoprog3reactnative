@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput,TouchableOpacity} from 'react-native';  
-import myCamera from '../components/MyCamera';
 import {auth, db} from '../firebase/config';
+import MyCamera from '../components/MyCamera';
 
 class Addpost extends Component {
     constructor() {
@@ -39,6 +39,12 @@ class Addpost extends Component {
        camara:true
       })
     }
+    onImageUpload(url) {
+      this.setState({
+          Foto: url,
+          camera: false
+      })
+  }
  
     render(){
         return(
@@ -59,7 +65,7 @@ class Addpost extends Component {
                < TouchableOpacity onPress={()=>this.camera()}> 
              <Text> Agregar foto al posteo </Text>
            </TouchableOpacity>
-           {this.state.camara ? <myCamera onImageUpload={(url) => this.onImageUpload(url)} /> : <Text></Text>}
+           {this.state.camara ? <MyCamera onImageUpload={(url) => this.onImageUpload(url)} /> : <Text></Text>}
              <Text>{this.state.errores}</Text>
            {
             this.state.Titulo == '' || this.state.Descripcion == ''  ?
