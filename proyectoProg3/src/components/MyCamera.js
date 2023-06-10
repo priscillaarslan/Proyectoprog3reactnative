@@ -59,7 +59,8 @@ class MyCamera extends Component{
                             this.props.onImageUpload(url);
                             this.setState({
                                 photo:'',
-                                photoOK:true
+                                photoOK:true,
+                                showCamera:false
                             })
                          })
                  })
@@ -72,41 +73,42 @@ class MyCamera extends Component{
 
     render(){
         return(
-            <View style={style.container}>
-                {this.state.showCamera===true ?
-                    <React.Fragment>
-                        <Camera
-                            style={style.camera}
-                            type={Camera.Constants.Type.back}
-                            ref={metodosDeCamara => this.metodosDeCamara = metodosDeCamara}
-                        />
-                        <TouchableOpacity onPress={() => this.takePicture()} style={style.btnCapture}>
-                            <Ionicons name="radio-button-on-sharp" size={66} color="green" />
+       <View style={style.container}>
+            {this.state.showCamera===true ?
+                <React.Fragment>
+                    <Camera
+                        style={style.camera}
+                        type={Camera.Constants.Type.back}
+                        ref={metodosDeCamara => this.metodosDeCamara = metodosDeCamara}
+                    />
+                    <TouchableOpacity onPress={() => this.takePicture()} style={style.btnCapture}>
+                        <Ionicons name="radio-button-on-sharp" size={66} color="green" />
+                    </TouchableOpacity>
+                </React.Fragment>
+            : null}
+            {this.state.photo !== '' ?
+                <React.Fragment>
+                    <Image
+                        style={style.image}
+                        source={{ uri: this.state.photo }}
+                    />
+                    <View style={style.checksDiv}>
+                        <TouchableOpacity onPress={() => this.clearPhoto()}>
+                            <Ionicons name="md-trash-sharp" size={40} color="red" />
                         </TouchableOpacity>
-                    </React.Fragment>
-                : null}
-                {this.state.photo !== '' ?
-                    <React.Fragment>
-                        <Image
-                            style={style.image}
-                            source={{ uri: this.state.photo }}
-                        />
-                        <View style={style.checksDiv}>
-                            <TouchableOpacity onPress={() => this.clearPhoto()}>
-                                <Ionicons name="md-trash-sharp" size={40} color="red" />
-                            </TouchableOpacity>
-                            <TouchableOpacity onPress={() => this.savePhoto()}>
-                                <AntDesign name="checkcircle" size={40} color="green" />
-                            </TouchableOpacity>
-                        </View>
-                    </React.Fragment>
-                    :
-                    null
-                }
-                {
-                    this.state.photoOK? <Text>Muchas gracias por tu foto</Text>:<Text></Text>
-                }
-            </View>
+                        <TouchableOpacity onPress={() => this.savePhoto()}>
+                            <AntDesign name="checkcircle" size={40} color="green" />
+                        </TouchableOpacity>
+                    </View>
+                </React.Fragment>
+                :
+                null
+            }
+            {
+                this.state.photoOK? <Text>Muchas gracias por tu foto</Text>:<Text></Text>
+            }
+        </View>
+        
         )
     }
 }

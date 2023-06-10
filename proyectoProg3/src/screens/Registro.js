@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput,TouchableOpacity} from 'react-native';  
 import {auth, db} from '../firebase/config';
+import CameraRegistro from '../components/CameraRegistro';
 
 class Registro extends Component {
     constructor() {
@@ -11,6 +12,7 @@ class Registro extends Component {
             nombre:'',
             biografia:'',
             foto:'',
+            camara:false,
             errores:''
             }
     }
@@ -21,7 +23,7 @@ class Registro extends Component {
             }
         })
     }
-    registrar(email,contraseña,nombre,biografia) {
+    registrar(email,contraseña,nombre,biografia,foto) {
         auth.createUserWithEmailAndPassword(email, contraseña)
         .then(res => {
             db.collection("users").add({
@@ -29,7 +31,7 @@ class Registro extends Component {
                 nombre: nombre,
                 biografia: biografia,
                 createdAt: Date.now(),
-                
+                foto:foto
             })
                 .then(() => {
                     this.setState({
@@ -49,6 +51,17 @@ class Registro extends Component {
                 errores: `Tienes un error: ${error.message}`
             })
         )
+    }
+    camera(){
+        this.setState({
+         camara:true
+        })
+      }
+      onImageUpload(url) {
+        this.setState({
+            foto: url,
+            camera: false
+        })
     }
     render(){
         return(
@@ -77,13 +90,17 @@ class Registro extends Component {
              onChangeText={texto=>this.setState({biografia:texto})}
              value= {this.state.biografia}
              />
+                < TouchableOpacity onPress={()=>this.camera()}> 
+             <Text> Agregar foto al posteo </Text>
+           </TouchableOpacity>
+           {this.state.camara ? <CameraRegistro onImageUpload={(url) => this.onImageUpload(url)} /> : <Text></Text>}
              <Text>{this.state.errores}</Text>
            {
             this.state.email == '' || this.state.contraseña == ''|| this.state.nombre == '' ?
            < TouchableOpacity>
              <Text> Registrarme </Text>
            </TouchableOpacity>:
-              <  TouchableOpacity onPress={()=>this.registrar(this.state.email,this.state.contraseña,this.state.nombre,this.state.biografia)}> 
+              <  TouchableOpacity onPress={()=>this.registrar(this.state.email,this.state.contraseña,this.state.nombre,this.state.biografia,this.state.foto)}> 
               <Text> Registrarme </Text>
             </TouchableOpacity>
            }
