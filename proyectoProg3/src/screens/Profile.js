@@ -113,8 +113,9 @@ const styles = StyleSheet.create({
         marginVertical:10,
     },
     btnDeslogueo: {
-        backgroundColor: "red",
-        height: 49,
+        backgroundColor: "brown",
+        height: 100,
+        width: 100,
 
     }
 })

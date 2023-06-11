@@ -118,13 +118,13 @@ const style = StyleSheet.create({
         top: 0,
         left: 0,
         width: '100%',
-        height: '100%'
+        height: 500,
     },
     camera: {
         top: 0,
         left: 0,
         width: '100%',
-        height: '100%'
+        height: 500,
     },
     btnCapture: {
         position: 'absolute', 
