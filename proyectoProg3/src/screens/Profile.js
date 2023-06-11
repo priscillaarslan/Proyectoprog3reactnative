@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     },
     btnDeslogueo: {
         backgroundColor: "red",
-        height: 50,
+        height: 49,
 
     }
 })
