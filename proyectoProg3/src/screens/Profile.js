@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList,TouchableOpacity} from 'react-native'; 
+import { View, Text, FlatList,TouchableOpacity,StyleSheet,Image} from 'react-native'; 
 import {auth, db} from '../firebase/config';
 import Card from '../components/Card';
 
@@ -75,6 +75,10 @@ class Profile extends Component {
         return(
             <View>
                 <Text>Soy la pagina del Perfil</Text>
+                {
+                    this.state.usuario[0]?.data.foto == ""? <Text></Text>:
+                    <Image  style={styles.imagen} source={{uri:`${this.state.usuario[0]?.data.foto}`}}  resizeMode='contain'      />
+                }
                 <Text>Bienvenido {this.state.usuario[0]?.data.email} tambien conocido como {this.state.usuario[0]?.data.nombre}</Text>
                 <Text>Biografia: {this.state.usuario[0]?.data.biografia} </Text>
                 <Text>Cantidad total de posteos:{this.state.post?.length} </Text>
@@ -99,7 +103,16 @@ class Profile extends Component {
           
         )
     }
-}
+} 
+const styles = StyleSheet.create({
+    
+    imagen:{
+        width:"100%",
+        height:250,
+        alignContent:"center",
+        marginVertical:10,
+    },
+})
 
 
 

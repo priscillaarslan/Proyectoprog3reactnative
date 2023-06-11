@@ -8,6 +8,7 @@ import { AntDesign } from '@expo/vector-icons';
 import Search from '../screens/Search';
 
 
+
 const Tab = createBottomTabNavigator();
 class NavegadorLogueado extends Component {
     render(){
@@ -21,6 +22,7 @@ class NavegadorLogueado extends Component {
            tabBarIcon: () => <AntDesign name="profile" color="black" size={24} />  }} />
            <Tab.Screen name='Busqueda usuario' component={Search} options={{ headerShown: false,
            tabBarIcon: () => <AntDesign name="profile" color="black" size={24} />  }} />
+          
         </Tab.Navigator>
         )
     }
