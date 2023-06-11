@@ -17,7 +17,7 @@ class OthersProfile extends Component {
 
     }
     componentDidMount(){ 
-    db.collection('users').where('email','==',this.props.email ).onSnapshot(
+    db.collection('users').where('email','==',this.props.route.params.email ).onSnapshot(
         (docs)=>{
         let user =[]
         docs.forEach((doc)=>{
@@ -31,7 +31,7 @@ class OthersProfile extends Component {
         })
         }
     )
-    db.collection("posteos").where('Usuario','==', this.props.email).onSnapshot((docs) => {  /*/ el onsnapchot es para que agarre lo que haya (captura la coleccion de posteos), el docs tiene todos los posteos/*/
+    db.collection("posteos").where('Usuario','==', this.props.route.params.email).onSnapshot((docs) => {  /*/ el onsnapchot es para que agarre lo que haya (captura la coleccion de posteos), el docs tiene todos los posteos/*/
     let posteos = []
     console.log(docs)
     docs.forEach(doc=>{  /*/ docs es un array entonces le hago un for each para recorrerlo y hacer algo por cada elemento, docs adentro tiene e cada uno de los elementos del doc/*/

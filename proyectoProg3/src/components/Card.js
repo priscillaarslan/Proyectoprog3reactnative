@@ -10,7 +10,8 @@ class Card extends Component {
         super(props)
         this.state = {
              likeado:false,
-             comment:false
+             comment:false,
+             borrar: false,
 
 
             }
@@ -58,6 +59,16 @@ class Card extends Component {
         })
        }
     }
+    eliminarPost(){
+        db.collection("posteos").doc(this.props.data.id).delete()
+        .then(() => {
+
+        }).catch((error) => {
+            console.error("Error removing document: ", error);
+        });
+       
+        
+    }
 
 
 
@@ -84,7 +95,14 @@ class Card extends Component {
                 </TouchableOpacity>} 
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Comment',{id:this.props.data.id})}>  {/*hacemos esto para que me traiga los comentarios de un solo posteo*/}
                                     <Text>Ver comentarios</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> 
+                {this.props.data.data.Usuario==auth.currentUser.email? <TouchableOpacity onPress={() => this.setState({ borrar: true })}> <Text> Eliminar post </Text> </TouchableOpacity>:<Text></Text>}
+               
+                {this.state.borrar == false ? <Text> </Text> : <> <Text> Estas seguro que quieres eliminar el post, es permanente!</Text>
+                    <TouchableOpacity onPress={() => this.eliminarPost()}> <Text> Si eliminar </Text> </TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.setState({ borrar: false })}> <Text> No eliminar </Text> </TouchableOpacity> </>}
+
+
          </View>
        
           

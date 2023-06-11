@@ -56,7 +56,7 @@ render(){
         value= {this.state.usuarioBuscado}
         />
         {this.state.usuariosFiltrados.length==0&&this.state.usuarioBuscado!=''? <Text>No existen usuarios con ese nombre</Text>:<Text></Text>}
-         {this.state.usuarioBuscado!=''?<FlatList data={this.state.usuariosFiltrados} keyExtractor={(data)=>data.id} renderItem={({item})=> <TouchableOpacity onPress={() => this.props.navigation.navigate('OthersProfile',{id:item.id})}>  
+         {this.state.usuarioBuscado!=''?<FlatList data={this.state.usuariosFiltrados} keyExtractor={(data)=>data.id} renderItem={({item})=> <TouchableOpacity onPress={() => this.props.navigation.navigate('OthersProfile',{email:item.data.email})}>  
                                     <Text>{item.data.nombre}</Text>
                 </TouchableOpacity>}
          ></FlatList> : <Text></Text>}
