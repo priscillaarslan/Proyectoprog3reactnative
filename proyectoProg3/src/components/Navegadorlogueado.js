@@ -5,6 +5,7 @@ import Addpost from '../screens/Addpost';
 import Profile from '../screens/Profile';
 import {FontAwesome} from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
+import Search from '../screens/Search';
 
 
 const Tab = createBottomTabNavigator();
@@ -17,6 +18,8 @@ class NavegadorLogueado extends Component {
             <Tab.Screen name='Addpost' component={Addpost} options={{ headerShown: false,
            tabBarIcon: () => <AntDesign name="plus" color="black" size={24} />  }} />
             <Tab.Screen name='Profile' component={Profile} options={{ headerShown: false,
+           tabBarIcon: () => <AntDesign name="profile" color="black" size={24} />  }} />
+           <Tab.Screen name='Busqueda usuario' component={Search} options={{ headerShown: false,
            tabBarIcon: () => <AntDesign name="profile" color="black" size={24} />  }} />
         </Tab.Navigator>
         )
