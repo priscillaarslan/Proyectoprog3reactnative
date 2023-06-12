@@ -73,14 +73,14 @@ class Profile extends Component {
     render(){
         console.log(this.state.usuario)
         return(
-            <View >
+            <View style={styles.perfil} >
                 <Text>Soy la pagina del Perfil</Text>
                 {
                     this.state.usuario[0]?.data.foto == ""? <Text></Text>:
                     <Image  style={styles.imagen} source={{uri:`${this.state.usuario[0]?.data.foto}`}}  resizeMode='contain'      />
                 }
                 <Text  style={styles.bienvenido}>Bienvenido {this.state.usuario[0]?.data.email} tambien conocido como {this.state.usuario[0]?.data.nombre}</Text>
-                <Text>Biografia: {this.state.usuario[0]?.data.biografia} </Text>
+                <Text style={styles.biografia}>Biografia: {this.state.usuario[0]?.data.biografia} </Text>
                 <Text>Cantidad total de posteos:{this.state.post?.length} </Text>
                 <Text>Estos son tus posteos : </Text>
                 {this.state.post?.length==0?<Text>Aun no hay posteos, subi alguno</Text>:  <FlatList data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
@@ -108,9 +108,13 @@ const styles = StyleSheet.create({
     
     imagen:{
         width:"100%",
-        height:250,
+        height:100,
         alignContent:"center",
         marginVertical:10,
+        objectFit: "cover",
+        marginRight: 20,
+        borderRadius: 50,
+
     },
     btnDeslogueo: {
         backgroundColor: "brown",
@@ -119,9 +123,23 @@ const styles = StyleSheet.create({
 
     },
     bienvenido:{
-        fontSize: 30,
+        fontSize: 24,
         marginLeft: 100, 
-    },
+        fontWeight: "bold",
+        color: "#333"
+         },
+
+    perfil:{
+        display: "flex",
+        alignItems: "center",
+        marginBottom: 20,
+    }, 
+
+    biografia:{
+        marginTop: 10, 
+        fontSize: 14, 
+        color: "#333"
+    }, 
 
     
 

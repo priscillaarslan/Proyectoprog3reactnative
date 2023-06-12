@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList,TextInput,TouchableOpacity,Modal} from 'react-native'; 
+import { View, Text, FlatList,TextInput, Stylesheet, TouchableOpacity,Modal} from 'react-native'; 
 import {auth, db} from '../firebase/config';
 import firebase from 'firebase';
 import "firebase/firestore";
@@ -94,6 +94,8 @@ class Comment extends Component {
         )
     }
 }
+
+
 
 
 
