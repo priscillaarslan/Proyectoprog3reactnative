@@ -79,7 +79,8 @@ class Card extends Component {
     render(){
         console.log(this.props.data.data.Likes.length);   
         return(
-            <View style={styles.contenedor}>
+            <View style={styles.contenedor} >
+                    <View style={styles.flex}> 
               <Text style={styles.autor} >Autor: {this.props.data.data.Usuario}</Text>
                 <Text>Titulo del posteo: {this.props.data.data.Titulo}</Text>
                 {
@@ -102,7 +103,7 @@ class Card extends Component {
                     <TouchableOpacity onPress={() => this.eliminarPost()}> <Text> Si eliminar </Text> </TouchableOpacity>
                     <TouchableOpacity onPress={() => this.setState({ borrar: false })}> <Text> No eliminar </Text> </TouchableOpacity> </>}
 
-
+                    </View>
          </View>
        
           
@@ -120,16 +121,24 @@ const styles = StyleSheet.create({
     autor:{
         fontSize: 30,
         color: "red",
-        marginTop: 100
+        flexDirection: 'row',
+        flex: 2,
+        width: '100%',
+        justifyContent: 'space-between'
+
     },
 
-    contenedor:{
-        flex: 1, 
-        maxWidth: 600,
-        margin: 0,
-        padding: 20,
 
-    }
+
+    contenedor:{
+        padding: 15,
+        borderBottomWidth: 1,
+        borderColor: 'rgb(180,180,180)',
+        borderStyle: 'solid',
+      
+
+    }, 
+
 
     
 })

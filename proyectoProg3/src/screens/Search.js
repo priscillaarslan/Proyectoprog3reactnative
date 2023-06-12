@@ -48,8 +48,8 @@ render(){
     console.log(this.state.usuariosFiltrados)
     return(
         <View style={styles.buscador}>
-        <Text> Esta es la pagina de buscar perfil </Text>
-        <TextInput 
+        <Text style={styles.texto}> Esta es la pagina de buscar perfil </Text>
+        <TextInput style={styles.boton}
         placeholder='busca un usuario' 
         keyboardType='default'
         onChangeText={texto=>this.busqueda(texto)}
@@ -74,14 +74,36 @@ render(){
 const styles = StyleSheet.create({
 
     buscador:{
-        display: "flex", 
-        justifyContent: "space between",
-        alignItems: "center",
-        backgroundColor: "#fff",
-        padding: 10,
-        borderBottom: 1,
+    
+        backgroundColor: 'rgba(135, 206, 235, 0.5)',
+        flex:1,
+        color: 'rgb(255,255,255)',
+        padding: 15,
+        alignItems: 'center',
+        width: '100%',
+    
 
     },
+
+    boton:{
+        borderStyle: 'solid',
+        borderWidth: 1,
+        borderColor: 'black',
+        backgroundColor: 'white',
+        margin: 10,
+        padding: 10,
+        textAlign: 'right',
+        marginTop:20
+
+    },
+
+    texto:{
+        fontWeight: 600,
+        color: 'black',
+        fontSize: 24,
+        textAlign: 'center', 
+        marginTop:40
+    }
 
     
 })
