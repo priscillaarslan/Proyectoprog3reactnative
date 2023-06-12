@@ -94,8 +94,8 @@ const styles = StyleSheet.create({
     flex:1,
       color: 'rgb(255,255,255)',
       padding: 15,
-      justifyContent: 'center'
-  }, 
+      justifyContent: 'center',
+  },
 
   title:{
     fontSize: 22,

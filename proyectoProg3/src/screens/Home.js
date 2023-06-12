@@ -31,22 +31,22 @@ class Home extends Component {
     }
 
 
-
-   
-
   
     render(){
         console.log(this.state.post)
         return(
+           
             <View style={styles.home}>
                 <Text style={styles.titulo}>Soy la pagina del Home</Text>
                 <Text style={styles.titulo2}>Nuevos posts: </Text>
-                <FlatList    style={styles.flatList} data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
+                <FlatList  style={styles.flatList} data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
                 >
                     
                 </FlatList>
-               
+                
          </View>
+     
+      
        
           
         )
@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(135, 206, 235, 0.5)',
         color: 'rgb(255,255,255)',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+    
     }, 
 
     titulo:{
@@ -71,6 +72,8 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
 
+
+   
     titulo2:{
         fontWeight: 600,
         color: 'rgb(255,255,255)',

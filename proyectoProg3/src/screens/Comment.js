@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList,TextInput, Stylesheet, TouchableOpacity,Modal} from 'react-native'; 
+import { View, Text, FlatList,TextInput, StyleSheet, TouchableOpacity,Modal} from 'react-native'; 
 import {auth, db} from '../firebase/config';
 import firebase from 'firebase';
 import "firebase/firestore";
@@ -53,7 +53,7 @@ class Comment extends Component {
         console.log(this.props.route.params.id)
        
         return(
-            <View>
+            <View style={styles.contenedor}>
                 <Text>Pagina de comentarios</Text>
                 <Text onPress={() => this.props.navigation.navigate("Home")}>Volver al home</Text>
                 <Text>Los comentarios a este posteo son :</Text>
@@ -95,6 +95,19 @@ class Comment extends Component {
     }
 }
 
+
+
+const styles = StyleSheet.create({
+
+    contenedor:{
+        backgroundColor: 'rgba(135, 206, 235, 0.5)',
+        flex:1, 
+        
+    }
+
+
+
+})
 
 
 
