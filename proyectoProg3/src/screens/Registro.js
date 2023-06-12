@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput,TouchableOpacity} from 'react-native';  
+import { View, Text, TextInput,TouchableOpacity, StyleSheet} from 'react-native';  
 import {auth, db} from '../firebase/config';
 import CameraRegistro from '../components/CameraRegistro';
 
@@ -65,49 +65,141 @@ class Registro extends Component {
     }
     render(){
         return(
-            <View>
-             <TextInput 
-             placeholder='email' 
+            <View style={styles.contenedor}>
+                   <Text style={styles.titulo} > REGISTRO </Text>
+             <TextInput style={styles.texto} 
+             placeholder='Email' 
              keyboardType='email-address'
              onChangeText={texto=>this.setState({email:texto})}
              value= {this.state.email}
              />
-                  <TextInput 
-             placeholder='contraseña' 
+                  <TextInput style={styles.texto2}
+             placeholder='Contraseña' 
              keyboardType='password'
              onChangeText={texto=>this.setState({contraseña:texto})}
              value= {this.state.contraseña}
              />
-               <TextInput 
-             placeholder='nombre' 
+               <TextInput  style={styles.texto3}
+             placeholder='Nombre' 
              keyboardType='default'
              onChangeText={texto=>this.setState({nombre:texto})}
              value= {this.state.nombre}
              />
-               <TextInput 
-             placeholder='biografia' 
+               <TextInput style={styles.texto4}
+             placeholder='Biografia' 
              keyboardType='default'
              onChangeText={texto=>this.setState({biografia:texto})}
              value= {this.state.biografia}
              />
                 < TouchableOpacity onPress={()=>this.camera()}> 
-             <Text> Agregar foto al posteo </Text>
+             <Text style={styles.texto5}> Agregar foto al posteo </Text>
            </TouchableOpacity>
            {this.state.camara ? <CameraRegistro onImageUpload={(url) => this.onImageUpload(url)} /> : <Text></Text>}
              <Text>{this.state.errores}</Text>
            {
             this.state.email == '' || this.state.contraseña == ''|| this.state.nombre == '' ?
            < TouchableOpacity>
-             <Text> Registrarme </Text>
+             <Text style={styles.texto6}> Registrarme </Text>
            </TouchableOpacity>:
               <  TouchableOpacity onPress={()=>this.registrar(this.state.email,this.state.contraseña,this.state.nombre,this.state.biografia,this.state.foto)}> 
-              <Text> Registrarme </Text>
+              <Text style={styles.texto7}> Registrarme </Text>
             </TouchableOpacity>
            }
-<Text onPress={() => this.props.navigation.navigate("Login")}> Ya tienes cuenta. Anda al login</Text>
+<Text style={styles.texto8} onPress={() => this.props.navigation.navigate("Login")}> Ya tienes cuenta. Anda al login</Text>
          </View>
        
         )
     }
 }
+
+
+const styles = StyleSheet.create({
+
+contenedor:{
+    backgroundColor: 'rgba(135, 206, 235, 0.5)',
+    flex: 1,
+    color: 'black',
+    padding: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%'
+}, 
+texto:{
+    fontWeight: 600,
+       color: 'black',
+    fontSize: 24,
+    textAlign: 'center', 
+   
+},
+
+texto2:{
+    fontWeight: 600,
+    color: 'black',
+    fontSize: 24,
+    textAlign: 'center', 
+    marginTop: 10
+},
+texto3:{
+    fontWeight: 600,
+    color: 'black',
+    fontSize: 24,
+    textAlign: 'center', 
+    marginTop: 10
+},
+texto4:{
+    fontWeight: 600,
+    color: 'black',
+    fontSize: 24,
+    textAlign: 'center', 
+    marginTop: 10
+},
+
+texto5:{
+    fontWeight: 600,
+    color: 'black',
+    fontSize: 24,
+    textAlign: 'center', 
+    marginTop: 10
+},
+texto6:{
+    fontWeight: 600,
+    color: 'black',
+    fontSize: 24,
+    textAlign: 'center', 
+    marginTop: 10
+},
+
+texto7:{
+    fontWeight: 600,
+    color: 'black',
+    fontSize: 24,
+    textAlign: 'center', 
+    marginTop: 10
+},
+
+
+texto8:{
+    fontWeight: 600,
+    color: 'black',
+    fontSize: 24,
+    textAlign: 'center', 
+    marginTop: 10
+},
+
+titulo:{
+    fontWeight: 600,
+    color: 'black',
+    fontSize: 40,
+    textAlign: 'center', 
+    marginBottom: 50
+}
+
+
+
+
+
+
+
+
+})
 export default Registro

@@ -74,15 +74,15 @@ class Profile extends Component {
         console.log(this.state.usuario)
         return(
             <View style={styles.perfil} >
-                <Text>Soy la pagina del Perfil</Text>
+                <Text style={styles.texto}>Soy la pagina del Perfil</Text>
                 {
                     this.state.usuario[0]?.data.foto == ""? <Text></Text>:
                     <Image  style={styles.imagen} source={{uri:`${this.state.usuario[0]?.data.foto}`}}  resizeMode='contain'      />
                 }
                 <Text  style={styles.bienvenido}>Bienvenido {this.state.usuario[0]?.data.email} tambien conocido como {this.state.usuario[0]?.data.nombre}</Text>
                 <Text style={styles.biografia}>Biografia: {this.state.usuario[0]?.data.biografia} </Text>
-                <Text>Cantidad total de posteos:{this.state.post?.length} </Text>
-                <Text>Estos son tus posteos : </Text>
+                <Text style={styles.info}>Cantidad total de posteos:{this.state.post?.length} </Text>
+                <Text style={styles.info}>Estos son tus posteos : </Text>
                 {this.state.post?.length==0?<Text>Aun no hay posteos, subi alguno</Text>:  <FlatList data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
                 >
                     
@@ -123,23 +123,39 @@ const styles = StyleSheet.create({
 
     },
     bienvenido:{
-        fontSize: 24,
+        fontSize: 20,
         marginLeft: 100, 
         fontWeight: "bold",
-        color: "#333"
+        color: 'rgb(255,255,255)',
+        marginTop: 20
          },
 
     perfil:{
         display: "flex",
         alignItems: "center",
-        marginBottom: 20,
+        backgroundColor: 'rgba(135, 206, 235, 0.5)',
+        flex: 1, 
     }, 
 
     biografia:{
-        marginTop: 10, 
+        marginTop: 20, 
         fontSize: 14, 
-        color: "#333"
+        color: 'rgb(255,255,255)',
     }, 
+
+    texto:{
+        color: 'rgb(255,255,255)',
+        marginTop: 20,
+        fontSize: 40, 
+        fontWeight: 600,
+    }, 
+
+    info:{
+      fontSize: 15, 
+        
+    }
+    
+    
 
     
 

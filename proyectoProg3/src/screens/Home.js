@@ -41,7 +41,7 @@ class Home extends Component {
             <View style={styles.home}>
                 <Text style={styles.titulo}>Soy la pagina del Home</Text>
                 <Text style={styles.titulo2}>Nuevos posts: </Text>
-                <FlatList data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
+                <FlatList    style={styles.flatList} data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
                 >
                     
                 </FlatList>
@@ -78,7 +78,12 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginTop: 15
 
-    }
+    }, 
+
+flatlist:{
+width: '100%'
+}
+
 
     
 })
