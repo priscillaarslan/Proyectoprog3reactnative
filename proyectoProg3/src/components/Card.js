@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
 import {auth, db} from '../firebase/config';
 import firebase from 'firebase';
 import "firebase/firestore";
-
+import { FontAwesome, EvilIcons } from '@expo/vector-icons'
 
 class Card extends Component {
     constructor(props) {
@@ -90,9 +90,17 @@ class Card extends Component {
                 <Text>Descripcion del posteo: {this.props.data.data.Descripcion}</Text>
                 <Text>Likes: {this.props.data.data.Likes.length}</Text>
                 {this.state.likeado ? <TouchableOpacity onPress={() => this.like()}>
-                              <Text>Deslikear</Text>
+                <FontAwesome
+                  name='heart'
+                  size={24}
+                  color='red'
+                />
                      </TouchableOpacity> : <TouchableOpacity onPress={() => this.like()}>
-                                    <Text>Likear</Text>
+                     <FontAwesome
+                  name='heart-o'
+                  size={24}
+                  color='red'
+                />
                 </TouchableOpacity>} 
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Comment',{id:this.props.data.id})}>  {/*hacemos esto para que me traiga los comentarios de un solo posteo*/}
                                     <Text>Ver comentarios</Text>
