@@ -79,8 +79,8 @@ class Card extends Component {
     render(){
         console.log(this.props.data.data.Likes.length);   
         return(
-            <View>
-              <Text>Autor: {this.props.data.data.Usuario}</Text>
+            <View style={styles.contenedor}>
+              <Text style={styles.autor} >Autor: {this.props.data.data.Usuario}</Text>
                 <Text>Titulo del posteo: {this.props.data.data.Titulo}</Text>
                 {
                     this.props.data.data.Foto == ''? <Text></Text>:
@@ -117,6 +117,21 @@ const styles = StyleSheet.create({
         alignContent:"center",
         marginVertical:10,
     },
+    autor:{
+        fontSize: 30,
+        color: "red",
+        marginTop: 100
+    },
+
+    contenedor:{
+        flex: 1, 
+        maxWidth: 600,
+        margin: 0,
+        padding: 20,
+
+    }
+
+    
 })
 
 

@@ -73,13 +73,13 @@ class Profile extends Component {
     render(){
         console.log(this.state.usuario)
         return(
-            <View>
+            <View >
                 <Text>Soy la pagina del Perfil</Text>
                 {
                     this.state.usuario[0]?.data.foto == ""? <Text></Text>:
                     <Image  style={styles.imagen} source={{uri:`${this.state.usuario[0]?.data.foto}`}}  resizeMode='contain'      />
                 }
-                <Text>Bienvenido {this.state.usuario[0]?.data.email} tambien conocido como {this.state.usuario[0]?.data.nombre}</Text>
+                <Text  style={styles.bienvenido}>Bienvenido {this.state.usuario[0]?.data.email} tambien conocido como {this.state.usuario[0]?.data.nombre}</Text>
                 <Text>Biografia: {this.state.usuario[0]?.data.biografia} </Text>
                 <Text>Cantidad total de posteos:{this.state.post?.length} </Text>
                 <Text>Estos son tus posteos : </Text>
@@ -117,7 +117,16 @@ const styles = StyleSheet.create({
         height: 100,
         width: 100,
 
-    }
+    },
+    bienvenido:{
+        fontSize: 30,
+        marginLeft: 100, 
+    },
+
+    
+
+
+
 })
 
 

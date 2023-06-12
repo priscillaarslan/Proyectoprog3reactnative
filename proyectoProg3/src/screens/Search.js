@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, TextInput,TouchableOpacity} from 'react-native'; 
+import { View, Text, FlatList, TextInput,TouchableOpacity, StyleSheet} from 'react-native'; 
 import {auth, db} from '../firebase/config';
 
 
@@ -47,7 +47,7 @@ render(){
     console.log(this.state.usuario)
     console.log(this.state.usuariosFiltrados)
     return(
-        <View>
+        <View style={styles.buscador}>
         <Text> Esta es la pagina de buscar perfil </Text>
         <TextInput 
         placeholder='busca un usuario' 
@@ -65,7 +65,26 @@ render(){
         
         </View>
     )
+
+    
     
 }
 } 
+
+const styles = StyleSheet.create({
+
+    buscador:{
+        display: "flex", 
+        justifyContent: "space between",
+        alignItems: "center",
+        backgroundColor: "#fff",
+        padding: 10,
+        borderBottom: 1,
+
+    },
+
+    
+})
+
+
 export default Search 
