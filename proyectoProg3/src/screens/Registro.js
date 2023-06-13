@@ -162,7 +162,7 @@ texto5:{
     marginTop: 10
 },
 texto6:{
-    fontWeight: 600,
+    fontWeight: 100,
     color: 'black',
     fontSize: 24,
     textAlign: 'center', 

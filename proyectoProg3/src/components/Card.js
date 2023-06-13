@@ -106,11 +106,13 @@ class Card extends Component {
               
                 <Text>Descripcion del posteo: {this.props.data.data.Descripcion}</Text>
 
-               <Text>Ultimos cuatro comentarios</Text>
+               <Text>Ultimos comentarios</Text>
+               {this.props.data.data.Comentarios.length==0?<Text>No existen comentarios para este posteo</Text>:
                 <FlatList data={this.props.data.data.Comentarios.slice(-4)} keyExtractor={(data)=>data.createdAt} renderItem={({item})=>  <Text>autor:{item.autor} texto del mensaje: {item.textoComentario}</Text> }
-                    >
-                        
-            </FlatList> 
+                >
+                    
+        </FlatList>   }
+             
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Comment',{id:this.props.data.id})}>  {/*hacemos esto para que me traiga los comentarios de un solo posteo*/}
                                     <Text>Ver todos los comentarios</Text>
                 </TouchableOpacity> 

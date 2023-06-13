@@ -58,10 +58,10 @@ class Login extends Component {
            {
             this.state.email == '' || this.state.contraseña == '' ?
            < TouchableOpacity>
-             <Text style={styles.texto3}> Loguearme </Text>
+             <Text style={styles.texto3Desactivado}> Loguearme </Text>
            </TouchableOpacity >:
               <  TouchableOpacity  onPress={()=>this.loguear(this.state.email,this.state.contraseña)}> 
-              <Text > Loguearme </Text>
+              <Text style={styles.texto3}> Loguearme </Text>
             </TouchableOpacity>
            }
 <Text style={styles.texto4}  onPress={() => this.props.navigation.navigate("Registro")}> Registrate aca </Text>
@@ -104,6 +104,13 @@ const styles = StyleSheet.create({
     texto3:{
         fontWeight: 600,
         color: 'rgb(255,255,255)',
+        fontSize: 24,
+        textAlign: 'center', 
+        marginTop: 10
+    },
+    texto3Desactivado:{
+        fontWeight: 100,
+        color: 'rgba(255,255,255,0.6)',
         fontSize: 24,
         textAlign: 'center', 
         marginTop: 10

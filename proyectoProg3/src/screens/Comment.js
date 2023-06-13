@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList,TextInput, StyleSheet, TouchableOpacity,Modal} from 'react-native'; 
+import { View, Text, FlatList,TextInput, StyleSheet, TouchableOpacity,Modal, LogBox} from 'react-native'; 
 import {auth, db} from '../firebase/config';
 import firebase from 'firebase';
 import "firebase/firestore";
@@ -18,9 +18,9 @@ class Comment extends Component {
     }
     componentDidMount(){ 
         db.collection("posteos").doc(this.props.route.params.id).onSnapshot((docs) => {
-            console.log(docs)
+      
             this.setState({
-                comentarios:docs.data().Comentarios
+                comentarios:docs.data().Comentarios.sort((a, b) => a.createdAt - b.createdAt).reverse()
 
             })
         })
@@ -62,7 +62,7 @@ class Comment extends Component {
 <Text>Aun no hay comentarios</Text>
                     </View>
                    : 
-                     <FlatList data={this.state.comentarios} keyExtractor={(data)=>data.createdAt} renderItem={({item})=>  <Text>autor:{item.autor} texto del mensaje: {item.textoComentario}</Text> }
+                     <FlatList style={styles.boxComentarios} data={this.state.comentarios} keyExtractor={(data)=>data.createdAt} renderItem={({item})=>  <Text>autor:{item.autor} texto del mensaje: {item.textoComentario}</Text> }
                     >
                     
             </FlatList> 
@@ -103,7 +103,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(135, 206, 235, 0.5)',
         flex:1, 
         
-    }
+    },
+    boxComentarios:{
+     maxHeight: 150,
+      
+    }  
 
 
 

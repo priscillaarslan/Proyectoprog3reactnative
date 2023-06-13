@@ -47,10 +47,11 @@ class Profile extends Component {
        
     }
     eliminarPerfil(){
+         db.collection('users').doc(this.state.usuario[0].id).delete()
+      .then(()=>{
         auth.currentUser.delete()
-        .then(()=> {
-            db.collection('users').doc(this.state.usuario.id).delete()
-        })
+      })
+         
         .then(()=> {
             this.props.navigation.navigate('Registro')
         })
