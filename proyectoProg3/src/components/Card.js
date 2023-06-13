@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native'; 
+import { View, Text, TouchableOpacity, StyleSheet, Image,FlatList} from 'react-native'; 
 import {auth, db} from '../firebase/config';
 import firebase from 'firebase';
 import "firebase/firestore";
@@ -77,6 +77,7 @@ class Card extends Component {
 
   
     render(){
+        console.log(this.props.data.data.Comentarios)
         console.log(this.props.data.data.Likes.length);   
         return(
             <View style={styles.contenedor}>
@@ -102,6 +103,10 @@ class Card extends Component {
                   color='red'
                 />
                 </TouchableOpacity>} 
+                <FlatList data={this.props.data.data.Comentarios.slice(-4)} keyExtractor={(data)=>data.createdAt} renderItem={({item})=>  <Text>autor:{item.autor} texto del mensaje: {item.textoComentario}</Text> }
+                    >
+                        
+            </FlatList> 
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Comment',{id:this.props.data.id})}>  {/*hacemos esto para que me traiga los comentarios de un solo posteo*/}
                                     <Text>Ver comentarios</Text>
                 </TouchableOpacity> 

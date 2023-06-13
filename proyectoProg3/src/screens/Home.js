@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, FlatList, StyleSheet} from 'react-native'; 
+import { View, Text, FlatList, StyleSheet,ActivityIndicator} from 'react-native'; 
 import {auth, db} from '../firebase/config';
 import Card from '../components/Card';
 
@@ -9,7 +9,8 @@ class Home extends Component {
     constructor() {
         super()
         this.state = {
-        post:[]
+        post:[],
+        loader:false
             }
 
     }
@@ -25,7 +26,8 @@ class Home extends Component {
             })
         });
         this.setState({
-            post:posteos
+            post:posteos,
+            loader:true
         })
         })
     }
@@ -36,15 +38,16 @@ class Home extends Component {
         console.log(this.state.post)
         return(
            
-            <View style={styles.home}>
-                <Text style={styles.titulo}>Soy la pagina del Home</Text>
+           <>
+                {this.state.loader? <View style={styles.home}><Text style={styles.titulo}>Soy la pagina del Home</Text>
                 <Text style={styles.titulo2}>Nuevos posts: </Text>
                 <FlatList  style={styles.flatList} data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
                 >
                     
-                </FlatList>
+                </FlatList></View>:<ActivityIndicator size="large" color="black"/>}
+              
                 
-         </View>
+         </>
      
       
        
