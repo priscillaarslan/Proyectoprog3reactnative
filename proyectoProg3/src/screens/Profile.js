@@ -92,6 +92,8 @@ class Profile extends Component {
                 
                
                 <Text style={styles.btnDeslogueo} onPress={() => this.deslogueate()}> Deslogueate </Text>
+                <Text  onPress={() => this.props.navigation.navigate("ModificarPerfil")}> Editar Perfil </Text>
+
                 <TouchableOpacity onPress={() => this.setState({ borrar: true })}> <Text> Eliminar perfil </Text> </TouchableOpacity>
                     {this.state.borrar == false ? <Text> </Text> : <> <Text> Estas seguro que quieres eliminar el perfil, es permanente!</Text>
                         <TouchableOpacity onPress={() => this.eliminarPerfil()}> <Text> Si eliminar </Text> </TouchableOpacity>

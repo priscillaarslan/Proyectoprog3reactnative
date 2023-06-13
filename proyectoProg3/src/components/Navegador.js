@@ -6,6 +6,7 @@ import {NavigationContainer} from "@react-navigation/native"
 import NavegadorLogueado from './Navegadorlogueado';
 import Comment from '../screens/Comment';
 import OthersProfile from '../screens/OthersProfile';
+import ModificarPerfil from '../screens/ModificarPerfil';
 
 
 const Stack = createNativeStackNavigator();
@@ -19,6 +20,7 @@ class Navegador extends Component {
             <Stack.Screen name='NavegadorLogueado' component={NavegadorLogueado} options={{ headerShown: false }} />
             <Stack.Screen name='Comment' component={Comment} options={{ headerShown: false }} />
             <Stack.Screen name='OthersProfile' component={OthersProfile} options={{ headerShown: false }} />  
+            <Stack.Screen name='ModificarPerfil' component={ModificarPerfil} options={{ headerShown: false }} />  
         </Stack.Navigator>
         </NavigationContainer>
         )

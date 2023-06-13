@@ -92,7 +92,7 @@ class Registro extends Component {
              value= {this.state.biografia}
              />
                 < TouchableOpacity onPress={()=>this.camera()}> 
-             <Text style={styles.texto5}> Agregar foto al posteo </Text>
+             <Text style={styles.texto5}> Agregar foto al perfil </Text>
            </TouchableOpacity>
            {this.state.camara ? <CameraRegistro onImageUpload={(url) => this.onImageUpload(url)} /> : <Text></Text>}
              <Text>{this.state.errores}</Text>
