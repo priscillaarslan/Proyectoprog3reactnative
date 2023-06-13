@@ -16,7 +16,7 @@ class Home extends Component {
     }
     componentDidMount(){ 
        // agarra de firebase todos los psoteos//
-        db.collection("posteos").onSnapshot((docs) => {  /*/ el onsnapchot es para que agarre lo que haya (captura la coleccion de posteos), el docs tiene todos los posteos/*/
+        db.collection("posteos").orderBy('CreatedAt', 'desc').onSnapshot((docs) => {  /*/ el onsnapchot es para que agarre lo que haya (captura la coleccion de posteos), el docs tiene todos los posteos/*/
         let posteos = []
         console.log(docs)
         docs.forEach(doc=>{  /*/ docs es un array entonces le hago un for each para recorrerlo y hacer algo por cada elemento, docs adentro tiene e cada uno de los elementos del doc/*/

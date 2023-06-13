@@ -82,7 +82,7 @@ class Card extends Component {
         return(
             <View style={styles.contenedor}>
                     <View style={styles.flex}> 
-              <Text style={styles.autor} >Autor: {this.props.data.data.Usuario}</Text>
+              <Text style={styles.autor} onPress={() => this.props.navigation.navigate('OthersProfile',{email:this.props.data.data.Usuario})}> Autor: {this.props.data.data.Usuario}</Text>
               {
                     this.props.data.data.Foto == ''? <Text></Text>:
                     <Image  style={styles.imagen} source={{uri:`${this.props.data.data.Foto}`}}  resizeMode='contain'      />

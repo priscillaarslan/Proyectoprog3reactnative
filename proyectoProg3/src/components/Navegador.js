@@ -5,7 +5,7 @@ import Login from '../screens/Login';
 import {NavigationContainer} from "@react-navigation/native"
 import NavegadorLogueado from './Navegadorlogueado';
 import Comment from '../screens/Comment';
-import OthersProfile from '../screens/othersProfile';
+import OthersProfile from '../screens/OthersProfile';
 
 
 const Stack = createNativeStackNavigator();

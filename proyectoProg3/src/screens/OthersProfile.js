@@ -54,11 +54,13 @@ class OthersProfile extends Component {
 
   
     render(){
-        console.log(this.props)
+      
         return(
             <View>
+                    <Text onPress={() => this.props.navigation.navigate("Home")}>Volver al home</Text>
+
                 {
-                    this.state.usuario[0]?.data.foto == ""? <Text></Text>:
+                    this.state.usuario[0]?.data.foto ==""? <Text></Text>:
                     <Image  style={styles.imagen} source={{uri:`${this.state.usuario[0]?.data.foto}`}}  resizeMode='contain'      />
                 }
                 <Text>Bienvenido al perfil de {this.state.usuario[0]?.data.email} tambien conocido como {this.state.usuario[0]?.data.nombre}</Text>

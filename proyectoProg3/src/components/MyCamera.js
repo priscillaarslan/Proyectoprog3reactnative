@@ -12,7 +12,7 @@ class MyCamera extends Component{
             permission: false,
             photo: '',
             showCamera: false,
-            photoOK:false
+       
         }
     };
 
@@ -59,7 +59,7 @@ class MyCamera extends Component{
                             this.props.onImageUpload(url);
                             this.setState({
                                 photo:'',
-                                photoOK:true,
+                               
                                 showCamera:false
                             })
                          })
@@ -104,9 +104,7 @@ class MyCamera extends Component{
                 :
                 null
             }
-            {
-                this.state.photoOK? <Text>Muchas gracias por tu foto</Text>:<Text></Text>
-            }
+           
         </View>
         
         )

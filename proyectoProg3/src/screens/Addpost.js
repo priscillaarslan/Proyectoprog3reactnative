@@ -42,7 +42,7 @@ class Addpost extends Component {
     onImageUpload(url) {
       this.setState({
           Foto: url,
-          camera: false
+          camara: false
       })
   }
  
@@ -62,9 +62,11 @@ class Addpost extends Component {
              onChangeText={texto=>this.setState({Descripcion:texto})}
              value= {this.state.Descripcion}
              />
-               < TouchableOpacity  style={styles.boton} onPress={()=>this.camera()}> 
+            {this.state.Foto==''? < TouchableOpacity  style={styles.boton} onPress={()=>this.camera()}> 
              <Text style={styles.text3}> Agregar foto al posteo </Text>
-           </TouchableOpacity> 
+           </TouchableOpacity> : <Text>Muchas gracias por tu foto</Text>}
+             
+              
            {this.state.camara ? <MyCamera onImageUpload={(url) => this.onImageUpload(url)} /> : <Text></Text>}
              <Text style={styles.text3}>{this.state.errores}</Text>
              
@@ -149,7 +151,7 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     padding: 7.5,
     width: '30%',
-  }, 
+  },
 
   
   
