@@ -38,16 +38,18 @@ class Home extends Component {
         console.log(this.state.post)
         return(
            
-           <>
-                {this.state.loader? <View style={styles.home}><Text style={styles.titulo}>Soy la pagina del Home</Text>
+           
+            <View style={styles.home}><Text style={styles.titulo}>Soy la pagina del Home</Text>
                 <Text style={styles.titulo2}>Nuevos posts: </Text>
+                {this.state.loader?
                 <FlatList  style={styles.flatList} data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
                 >
                     
-                </FlatList></View>:<ActivityIndicator size="large" color="black"/>}
+                </FlatList>: <ActivityIndicator size="large" color="black"/>}
+                </View>
               
                 
-         </>
+         
      
       
        

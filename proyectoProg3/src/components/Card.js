@@ -83,13 +83,12 @@ class Card extends Component {
             <View style={styles.contenedor}>
                     <View style={styles.flex}> 
               <Text style={styles.autor} >Autor: {this.props.data.data.Usuario}</Text>
-                <Text>Titulo del posteo: {this.props.data.data.Titulo}</Text>
-                {
+              {
                     this.props.data.data.Foto == ''? <Text></Text>:
                     <Image  style={styles.imagen} source={{uri:`${this.props.data.data.Foto}`}}  resizeMode='contain'      />
                 }
-                <Text>Descripcion del posteo: {this.props.data.data.Descripcion}</Text>
-                <Text>Likes: {this.props.data.data.Likes.length}</Text>
+                <Text>Titulo del posteo: {this.props.data.data.Titulo}</Text>
+                
                 {this.state.likeado ? <TouchableOpacity onPress={() => this.like()}>
                 <FontAwesome
                   name='heart'
@@ -103,12 +102,17 @@ class Card extends Component {
                   color='red'
                 />
                 </TouchableOpacity>} 
+                <Text>Likes: {this.props.data.data.Likes.length}</Text>
+              
+                <Text>Descripcion del posteo: {this.props.data.data.Descripcion}</Text>
+
+               <Text>Ultimos cuatro comentarios</Text>
                 <FlatList data={this.props.data.data.Comentarios.slice(-4)} keyExtractor={(data)=>data.createdAt} renderItem={({item})=>  <Text>autor:{item.autor} texto del mensaje: {item.textoComentario}</Text> }
                     >
                         
             </FlatList> 
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Comment',{id:this.props.data.id})}>  {/*hacemos esto para que me traiga los comentarios de un solo posteo*/}
-                                    <Text>Ver comentarios</Text>
+                                    <Text>Ver todos los comentarios</Text>
                 </TouchableOpacity> 
                 {this.props.data.data.Usuario==auth.currentUser.email? <TouchableOpacity onPress={() => this.setState({ borrar: true })}> <Text> Eliminar post </Text> </TouchableOpacity>:<Text></Text>}
                
