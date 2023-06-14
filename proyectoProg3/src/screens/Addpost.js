@@ -48,9 +48,11 @@ class Addpost extends Component {
  
     render(){
         return(
+          <View style={styles.view1}>
             <View style={styles.contenedor}>
-                <Text style={styles.title}>Crear posteo</Text>
-             <TextInput  style={styles.text1}
+                <Text style={styles.title}>Crear posteo</Text> <br></br>
+            
+             <TextInput style={styles.bordes}  style={styles.text1}
              placeholder='Titulo' 
              keyboardType='default'
              onChangeText={texto=>this.setState({Titulo:texto})}
@@ -74,14 +76,17 @@ class Addpost extends Component {
             this.state.Titulo == '' || this.state.Descripcion == ''  ?
            < TouchableOpacity>
              <Text style={styles.text4}> Crear posteo </Text>
-           </TouchableOpacity>:
+           </TouchableOpacity >:
               <  TouchableOpacity onPress={()=>this.CrearPosteo(this.state.Titulo,this.state.Descripcion)}> 
               <Text style={styles.text5}> Crear posteo </Text>
             </TouchableOpacity>
+           
 
             
            }
+            </View>
          </View>
+      
        
         )
     }
@@ -98,45 +103,60 @@ const styles = StyleSheet.create({
       padding: 15,
       justifyContent: 'center',
       width: 550, 
-      height: 500
+      height: 500,
+      
+
   },
 
   title:{
     fontSize: 22,
-    fontWeight: '600'
+    fontWeight: '600',
+    marginBottom: 100, 
+    fontFamily:'Helvetica Neue', 
+
 
   },
 
+
   text1:{
     fontSize: 22,
-    fontWeight: '600'
+    fontWeight: '400',
+    fontFamily:'Helvetica Neue', 
+    
 
   },
 
 
   text2:{
     fontSize: 22,
-    fontWeight: '600'
+    fontWeight: '400',
+    fontFamily:'Helvetica Neue', 
+  
 
   },
 
 
   text3:{
     fontSize: 22,
-    fontWeight: '600'
+    fontWeight: '400',
+    fontFamily:'Helvetica Neue', 
+    
 
   },
 
   text4:{
     fontSize: 22,
-    fontWeight: '600'
+    fontWeight: '400',
+    fontFamily:'Helvetica Neue', 
+
 
   },
  
 
   text5:{
     fontSize: 22,
-    fontWeight: '600'
+    fontWeight: '400',
+    fontFamily:'Helvetica Neue', 
 
   },
 
@@ -155,7 +175,21 @@ const styles = StyleSheet.create({
     width: '30%',
   },
 
+  view1:{
+   flex:1,
   
+
+  },
+
+
+  view2:{
+  marginBottom: 200, 
+   
+ 
+   },
+
+
+
   
 
 })
