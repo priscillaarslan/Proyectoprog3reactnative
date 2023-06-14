@@ -102,6 +102,8 @@ const styles = StyleSheet.create({
     contenedor:{
         backgroundColor: 'rgba(135, 206, 235, 0.5)',
         flex:1, 
+        width: 300, 
+        height: 300, 
         
     },
     boxComentarios:{

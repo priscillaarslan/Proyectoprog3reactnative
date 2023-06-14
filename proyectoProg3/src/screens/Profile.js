@@ -110,7 +110,7 @@ class Profile extends Component {
 const styles = StyleSheet.create({
     
     imagen:{
-        width:"100%",
+        width:300,
         height:100,
         alignContent:"center",
         marginVertical:10,
@@ -138,6 +138,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: 'rgba(135, 206, 235, 0.5)',
         flex: 1, 
+        width: 550, 
+        height: 400
     }, 
 
     biografia:{

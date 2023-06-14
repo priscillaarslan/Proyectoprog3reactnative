@@ -5,6 +5,7 @@ import firebase from 'firebase';
 import "firebase/firestore";
 import { FontAwesome, EvilIcons } from '@expo/vector-icons'
 
+
 class Card extends Component {
     constructor(props) {
         super(props)

@@ -6,6 +6,8 @@ import Profile from '../screens/Profile';
 import {FontAwesome} from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import Search from '../screens/Search';
+import {StyleSheet} from 'react-native'; 
+
 
 
 
@@ -13,7 +15,7 @@ const Tab = createBottomTabNavigator();
 class NavegadorLogueado extends Component {
     render(){
         return(
-            <Tab.Navigator>
+            <Tab.Navigator style={styles.contenedor} >
             <Tab.Screen name='Home' component={Home} options={{ headerShown: false,
              tabBarIcon: () => <AntDesign name='home' color='black' size={24} /> }} />
             <Tab.Screen name='Addpost' component={Addpost} options={{ headerShown: false,
@@ -27,4 +29,15 @@ class NavegadorLogueado extends Component {
         )
     }
 }
+
+const styles = StyleSheet.create({
+contenedor:{
+    width:50, 
+    backgroundColor: 'red',
+
+}
+
+})
+
+
 export default NavegadorLogueado

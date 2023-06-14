@@ -39,7 +39,7 @@ class Home extends Component {
         return(
            
            
-            <View style={styles.home}><Text style={styles.titulo}>Soy la pagina del Home</Text>
+            <View style={styles.home}><Text style={styles.titulo}>Instagram</Text>
                 <Text style={styles.titulo2}>Nuevos posts: </Text>
                 {this.state.loader?
                 <FlatList  style={styles.flatList} data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
@@ -71,10 +71,12 @@ const styles = StyleSheet.create({
 
     titulo:{
         fontWeight: 600,
-        color: 'rgb(255,255,255)',
+        color: 'black',
         fontSize: 40,
         textAlign: 'center', 
-        marginTop: 20
+        marginTop: 20, 
+        fontFamily: 'cursive',
+        fontWeight: 'lighter',
     },
 
 

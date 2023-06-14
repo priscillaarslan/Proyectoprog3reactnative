@@ -97,6 +97,8 @@ const styles = StyleSheet.create({
       color: 'rgb(255,255,255)',
       padding: 15,
       justifyContent: 'center',
+      width: 550, 
+      height: 500
   },
 
   title:{

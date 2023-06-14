@@ -115,8 +115,8 @@ const style = StyleSheet.create({
     container: {
         top: 0,
         left: 0,
-        width: '100%',
-        height: 500,
+        width: 500,
+        height: 300,
     },
     camera: {
         top: 0,

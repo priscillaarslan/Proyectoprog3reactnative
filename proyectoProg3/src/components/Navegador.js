@@ -9,6 +9,7 @@ import OthersProfile from '../screens/OthersProfile';
 import ModificarPerfil from '../screens/ModificarPerfil';
 
 
+
 const Stack = createNativeStackNavigator();
 class Navegador extends Component {
     render(){
@@ -26,4 +27,6 @@ class Navegador extends Component {
         )
     }
 }
+
+
 export default Navegador
