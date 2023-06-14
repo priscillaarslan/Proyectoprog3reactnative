@@ -52,6 +52,7 @@ class Addpost extends Component {
             <View style={styles.contenedor}>
                 <Text style={styles.title}>Crear posteo</Text> <br></br>
             
+            
              <TextInput style={styles.bordes}  style={styles.text1}
              placeholder='Titulo' 
              keyboardType='default'
@@ -64,19 +65,22 @@ class Addpost extends Component {
              onChangeText={texto=>this.setState({Descripcion:texto})}
              value= {this.state.Descripcion}
              />
+           
             {this.state.Foto==''? < TouchableOpacity  style={styles.boton} onPress={()=>this.camera()}> 
              <Text style={styles.text3}> Agregar foto al posteo </Text>
+            
            </TouchableOpacity> : <Text>Muchas gracias por tu foto</Text>}
-             
-              
-           {this.state.camara ? <MyCamera onImageUpload={(url) => this.onImageUpload(url)} /> : <Text></Text>}
+         
+              <View style={styles.camara}>
+           {this.state.camara ? <MyCamera onImageUpload={(url) => this.onImageUpload(url)}  /> : <Text></Text>}
              <Text style={styles.text3}>{this.state.errores}</Text>
+             </View>
              
            {
             this.state.Titulo == '' || this.state.Descripcion == ''  ?
            < TouchableOpacity>
              <Text style={styles.text4}> Crear posteo </Text>
-           </TouchableOpacity >:
+           </TouchableOpacity  >:
               <  TouchableOpacity onPress={()=>this.CrearPosteo(this.state.Titulo,this.state.Descripcion)}> 
               <Text style={styles.text5}> Crear posteo </Text>
             </TouchableOpacity>
@@ -100,36 +104,55 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'rgba(135, 206, 235, 0.5)',
     color: 'rgb(255,255,255)',
-    padding: 15,
-    justifyContent: 'center'
+    width: 500, 
+    marginLeft: 480,
       
 
+  },
+
+  imagen:{
+    width: 200
+  },
+
+  camara:{
+    marginLeft: 20, 
   },
 
   title:{
     fontSize: 22,
     fontWeight: '600',
-    marginBottom: 100, 
     fontFamily:'Helvetica Neue', 
-
+    marginTop: 20, 
+    marginLeft: 20, 
 
   },
 
 
+
+
+
   text1:{
-    fontSize: 22,
-    fontWeight: '400',
+    borderWidth: 2,
+    borderColor: 'black',
+    backgroundColor: 'white',
+    margin: 10,
+    padding: 10,
+    textAlign: 'right',
     fontFamily:'Helvetica Neue', 
-    
+
 
   },
 
 
   text2:{
-    fontSize: 22,
-    fontWeight: '400',
+    borderWidth: 2,
+    borderColor: 'black',
+    backgroundColor: 'white',
+    margin: 10,
+    padding: 10,
+    textAlign: 'right',
     fontFamily:'Helvetica Neue', 
-  
+
 
   },
 
@@ -138,14 +161,24 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '400',
     fontFamily:'Helvetica Neue', 
-    
+    marginLeft: 20, 
+  
+
 
   },
 
   text4:{
-    fontSize: 22,
-    fontWeight: '400',
+    borderWidth: 2,
+    borderColor: 'black',
+    backgroundColor: 'white',
+    margin: 10,
+    padding: 10,
+    textAlign: 'right',
     fontFamily:'Helvetica Neue', 
+    width: 150, 
+    backgroundColor: 'rgba(245, 245, 220, 0.5)',
+   
+
 
 
   },
@@ -155,15 +188,18 @@ const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: '400',
     fontFamily:'Helvetica Neue', 
+    marginLeft: 20, 
+    
 
   },
 
   boton:{
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: 'black',
-    borderStyle: 'solid',
-    padding: 7.5,
-    width: '30%',
+    backgroundColor: 'white',
+    margin: 10,
+    padding: 10,
+    textAlign: 'right' 
   },
 
   view1:{
@@ -171,13 +207,6 @@ const styles = StyleSheet.create({
   
 
   },
-
-
-  view2:{
-  marginBottom: 200, 
-   
- 
-   },
 
 
 
