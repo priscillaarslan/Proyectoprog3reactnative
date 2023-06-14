@@ -80,7 +80,7 @@ class Profile extends Component {
                     this.state.usuario[0]?.data.foto == ""? <Text></Text>:
                     <Image  style={styles.imagen} source={{uri:`${this.state.usuario[0]?.data.foto}`}}  resizeMode='contain'      />
                 }
-                <Text  style={styles.bienvenido}>Bienvenido {this.state.usuario[0]?.data.email} tambien conocido como {this.state.usuario[0]?.data.nombre}</Text>
+                <Text style={styles.bienvenido}>Bienvenido {this.state.usuario[0]?.data.email} tambien conocido como {this.state.usuario[0]?.data.nombre}</Text>
                 <Text style={styles.biografia}><text style={styles.biografia2}>Biografia:</text>{this.state.usuario[0]?.data.biografia}<br></br><text style={styles.biografia2}>Total de posteos:</text> {this.state.post?.length} <br></br><text style={styles.biografia2}>Estos son tus posteos:</text> </Text>
                 {this.state.post?.length==0?<Text>Aun no hay posteos, subi alguno</Text>:  <FlatList data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
                 >
@@ -88,15 +88,15 @@ class Profile extends Component {
                 </FlatList> }
               
                 
-               
-                <Text style={styles.btnDeslogueo} onPress={() => this.deslogueate()}> Deslogueate </Text>
-                <Text  onPress={() => this.props.navigation.navigate("ModificarPerfil")}> Editar Perfil </Text>
+               <View style={styles.view1} >
+              <Text onPress={() => this.deslogueate()}> <text style={styles.textoinfo}>Deslogueate</text> </Text>
+                <Text style={styles.textoinfo}  onPress={() => this.props.navigation.navigate("ModificarPerfil")}> Editar Perfil </Text>
 
-                <TouchableOpacity onPress={() => this.setState({ borrar: true })}> <Text> Eliminar perfil </Text> </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.setState({ borrar: true })}> <Text style={styles.textoinfo}> Eliminar perfil </Text> </TouchableOpacity>
                     {this.state.borrar == false ? <Text> </Text> : <> <Text> Estas seguro que quieres eliminar el perfil, es permanente!</Text>
                         <TouchableOpacity onPress={() => this.eliminarPerfil()}> <Text> Si eliminar </Text> </TouchableOpacity>
                         <TouchableOpacity onPress={() => this.setState({ borrar: false })}> <Text> No eliminar </Text> </TouchableOpacity> </>}
-
+                        </View>
                     
                     {this.state.errorAlEliminar == false ? <Text> </Text> :  <Text> Esta es una operación sensible, volvé a iniciar sesión para eliminar tu perfil</Text>}
          </View>
@@ -119,12 +119,7 @@ const styles = StyleSheet.create({
         height: 300,
 
     },
-    btnDeslogueo: {
-        backgroundColor: "rgba(245, 245, 220, 0.5)",
-        height: 40,
-        width: 100,
-
-    },
+   
     bienvenido:{
         fontSize: 15,
        alignContent: 'center',
@@ -168,7 +163,32 @@ const styles = StyleSheet.create({
     biografia2:{
         fontWeight: 'bold',
         fontFamily: 'Helvetica Neue',
+    }, 
+
+    info:{
+        fontWeight: '400',
+        fontFamily: 'Helvetica Neue',
+    }, 
+
+    view1:{
+        borderWidth: 3,
+        width: 120, 
+        height: 80, 
+        borderColor: 'rgb(210, 180, 140)',
+        marginTop: 10,
+        marginLeft: 300,
+        
+    },
+    
+    textoinfo:{
+        fontSize: 15, 
+        fontFamily:'Helvetica Neue', 
+        fontWeight: '700', 
+        marginTop: 5, 
+
+
     }
+    
     
     
 
