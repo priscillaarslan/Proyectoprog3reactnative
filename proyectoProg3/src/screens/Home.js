@@ -64,8 +64,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'rgba(135, 206, 235, 0.5)',
         color: 'rgb(255,255,255)',
-        justifyContent: 'center',
-        alignItems: 'center',
+       
     
     }, 
 
@@ -75,18 +74,23 @@ const styles = StyleSheet.create({
         fontSize: 40,
         textAlign: 'center', 
         marginTop: 20, 
-        fontFamily: 'cursive',
+        fontFamily: 'billabong',
         fontWeight: 'lighter',
+        
+        
     },
 
 
    
     titulo2:{
         fontWeight: 600,
-        color: 'rgb(255,255,255)',
+        color: 'black',
         fontSize: 20,
-        textAlign: 'center',
-        marginTop: 15
+        marginRight: 320,
+        marginTop: 15, 
+        fontFamily: 'Helvetica Neue',
+        fontWeight: '400',
+        marginLeft: 15,
 
     }, 
 

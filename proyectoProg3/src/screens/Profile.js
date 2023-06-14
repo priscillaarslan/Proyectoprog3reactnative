@@ -120,17 +120,21 @@ const styles = StyleSheet.create({
 
     },
     btnDeslogueo: {
-        backgroundColor: "brown",
-        height: 100,
+        backgroundColor: "rgba(245, 245, 220, 0.5)",
+        height: 40,
         width: 100,
 
     },
     bienvenido:{
-        fontSize: 20,
-        marginLeft: 100, 
+        fontSize: 15,
+       alignContent: 'center',
         fontWeight: "bold",
-        color: 'rgb(255,255,255)',
-        marginTop: 20
+        color: 'black',
+        marginTop: 20,
+        width: 400, 
+        fontWeight: '400',
+        fontFamily: 'Helvetica Neue',
+        marginRight: 80, 
          },
 
     perfil:{

@@ -15,7 +15,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   contenedor:{
-      width:550, 
+      width:500, 
       justifyContent: 'center', 
       marginLeft: 500, 
       marginTop: 50, 

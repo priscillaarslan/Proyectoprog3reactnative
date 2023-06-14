@@ -83,12 +83,12 @@ class Card extends Component {
         return(
             <View style={styles.contenedor}>
                     <View style={styles.flex}> 
-              <Text style={styles.autor} onPress={() => this.props.navigation.navigate('OthersProfile',{email:this.props.data.data.Usuario})}> Autor: {this.props.data.data.Usuario}</Text>
+              <Text style={styles.autor} onPress={() => this.props.navigation.navigate('OthersProfile',{email:this.props.data.data.Usuario})}><text style={styles.text}>user:</text><text> {this.props.data.data.Usuario}</text></Text>
               {
                     this.props.data.data.Foto == ''? <Text></Text>:
                     <Image  style={styles.imagen} source={{uri:`${this.props.data.data.Foto}`}}  resizeMode='contain'      />
                 }
-                <Text>Titulo del posteo: {this.props.data.data.Titulo}</Text>
+                <Text style={styles.text}>nombre del post: <text style={styles.text2}>{this.props.data.data.Titulo} </text> </Text>
                 
                 {this.state.likeado ? <TouchableOpacity onPress={() => this.like()}>
                 <FontAwesome
@@ -103,25 +103,25 @@ class Card extends Component {
                   color='red'
                 />
                 </TouchableOpacity>} 
-                <Text>Likes: {this.props.data.data.Likes.length}</Text>
+                <Text style={styles.info}>likes: <text  style={styles.info3}> {this.props.data.data.Likes.length}</text> </Text>
               
-                <Text>Descripcion del posteo: {this.props.data.data.Descripcion}</Text>
+                <Text style={styles.info}>descripcion del posteo: <text  style={styles.info3}>{this.props.data.data.Descripcion}</text> </Text>
 
-               <Text>Ultimos comentarios</Text>
-               {this.props.data.data.Comentarios.length==0?<Text>No existen comentarios para este posteo</Text>:
-                <FlatList data={this.props.data.data.Comentarios.slice(-4)} keyExtractor={(data)=>data.createdAt} renderItem={({item})=>  <Text>autor:{item.autor} texto del mensaje: {item.textoComentario}</Text> }
+               <Text style={styles.info}>ultimos comentarios</Text>
+               {this.props.data.data.Comentarios.length==0?<Text style={styles.info}>no existen comentarios para este posteo</Text>:
+                <FlatList data={this.props.data.data.Comentarios.slice(-4)} keyExtractor={(data)=>data.createdAt} renderItem={({item})=>  <Text style={styles.info} >autor:{item.autor} texto del mensaje: {item.textoComentario}</Text> }
                 >
                     
         </FlatList>   }
              
                 <TouchableOpacity onPress={() => this.props.navigation.navigate('Comment',{id:this.props.data.id})}>  {/*hacemos esto para que me traiga los comentarios de un solo posteo*/}
-                                    <Text>Ver todos los comentarios</Text>
+                                    <Text style={styles.info1}>Ver todos los comentarios</Text>
                 </TouchableOpacity> 
-                {this.props.data.data.Usuario==auth.currentUser.email? <TouchableOpacity onPress={() => this.setState({ borrar: true })}> <Text> Eliminar post </Text> </TouchableOpacity>:<Text></Text>}
+                {this.props.data.data.Usuario==auth.currentUser.email? <TouchableOpacity onPress={() => this.setState({ borrar: true })}><Text style={styles.info1}>Eliminar post</Text> </TouchableOpacity>:<Text></Text>}
                
                 {this.state.borrar == false ? <Text> </Text> : <> <Text> Estas seguro que quieres eliminar el post, es permanente!</Text>
-                    <TouchableOpacity onPress={() => this.eliminarPost()}> <Text> Si eliminar </Text> </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.setState({ borrar: false })}> <Text> No eliminar </Text> </TouchableOpacity> </>}
+                    <TouchableOpacity onPress={() => this.eliminarPost()}><Text> Si eliminar</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={() => this.setState({ borrar: false })}><Text>No eliminar </Text> </TouchableOpacity> </>}
 
                     </View>
          </View>
@@ -133,21 +133,34 @@ class Card extends Component {
 const styles = StyleSheet.create({
     
     imagen:{
-        width:"100%",
+        width: 200,
         height:250,
         alignContent:"center",
         marginVertical:10,
     },
     autor:{
-        fontSize: 30,
-        color: "red",
+        fontSize: 15,
+        color: "black",
         flexDirection: 'row',
         flex: 2,
         width: '100%',
-        justifyContent: 'space-between'
+        fontWeight: '400', 
+        fontFamily: 'Helvetica Neue', 
+        marginRight: 50,
 
     },
 
+
+    text:{
+        fontWeight: 'bold', 
+        fontFamily: 'Helvetica Neue', 
+        
+    },
+
+    text2:{
+        fontWeight: 'lighter', 
+        fontFamily: 'Helvetica Neue', 
+    },
 
 
     contenedor:{
@@ -160,13 +173,28 @@ const styles = StyleSheet.create({
 
     }, 
 
+    info:{
+        fontFamily:'Helvetica Neue', 
+        fontWeight: 500, 
+        fontSize: 15, 
+    },
 
+    info1:{
+        fontFamily:'Helvetica Neue', 
+        fontWeight: '800', 
+        fontSize: 15, 
+    },
 
     flex:{
        
 
     }, 
 
+    info3:{
+        fontFamily:'Helvetica Neue', 
+        fontSize: 15, 
+        fontWeight:'300'
+    },
 
     
 })

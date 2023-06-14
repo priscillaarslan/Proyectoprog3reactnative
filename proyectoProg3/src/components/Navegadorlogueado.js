@@ -33,8 +33,7 @@ class NavegadorLogueado extends Component {
 const styles = StyleSheet.create({
 contenedor:{
     width:50, 
-    backgroundColor: 'red',
-
+  
 }
 
 })
