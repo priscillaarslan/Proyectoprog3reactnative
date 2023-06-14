@@ -126,7 +126,6 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         color: 'black',
         marginTop: 20,
-        width: 400, 
         fontWeight: '400',
         fontFamily: 'Helvetica Neue',
         marginRight: 20, 
@@ -138,8 +137,6 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: 'rgba(135, 206, 235, 0.5)',
         flex: 1, 
-        width: 450, 
-        height: 300, 
         fontFamily: 'Helvetica Neue',
     }, 
 
@@ -181,7 +178,6 @@ const styles = StyleSheet.create({
 
     },
     view1:{
-        width: 120, 
         height: 60, 
         marginTop: 10,
         marginLeft: 300,
