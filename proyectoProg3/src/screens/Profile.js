@@ -170,15 +170,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Helvetica Neue',
     }, 
 
-    view1:{
-        borderWidth: 3,
-        width: 120, 
-        height: 80, 
-        borderColor: 'rgb(210, 180, 140)',
-        marginTop: 10,
-        marginLeft: 300,
-        
-    },
+    
     
     textoinfo:{
         fontSize: 15, 
@@ -187,8 +179,14 @@ const styles = StyleSheet.create({
         marginTop: 5, 
 
 
-    }
-    
+    },
+    view1:{
+        width: 120, 
+        height: 60, 
+        marginTop: 10,
+        marginLeft: 300,
+        
+    },
     
     
 
