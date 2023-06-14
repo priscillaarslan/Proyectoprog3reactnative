@@ -117,8 +117,9 @@ const styles = StyleSheet.create({
     }, 
 
     imagen:{
-        width: 100,
-        height: 100,
+        width: 250,
+        height: 250,
+        marginLeft: 100,
 
     },
 
@@ -133,6 +134,7 @@ const styles = StyleSheet.create({
         color: 'black',
         marginTop: 20,
         fontWeight: '400',
+        marginLeft:  20, 
         fontFamily: 'Helvetica Neue',
        
        
@@ -141,7 +143,7 @@ const styles = StyleSheet.create({
    
 
     biografia:{
-     
+        marginLeft:  20, 
        
         fontFamily: 'Helvetica Neue',
     }, 
@@ -152,17 +154,20 @@ const styles = StyleSheet.create({
         fontSize: 25, 
         fontWeight: 'lighter',
         fontFamily: 'billabong',
+        marginLeft: 100, 
     }, 
 
   
     biografia2:{
         fontWeight: 'bold',
         fontFamily: 'Helvetica Neue',
+        marginLeft:  20, 
     }, 
 
     info:{
         fontWeight: '400',
         fontFamily: 'Helvetica Neue',
+        marginLeft:  20, 
     }, 
 
     
@@ -172,12 +177,14 @@ const styles = StyleSheet.create({
         fontFamily:'Helvetica Neue', 
         fontWeight: '700', 
         marginTop: 5, 
+        marginLeft:  20, 
 
 
     },
     view1:{
         height: 60, 
         marginTop: 10,
+        marginLeft:  20, 
        
         
     },
