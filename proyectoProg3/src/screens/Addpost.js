@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput,TouchableOpacity, StyleSheet} from 'react-native';  
+import { View, Text, TextInput,TouchableOpacity, StyleSheet, ScrollView} from 'react-native';  
 import {auth, db} from '../firebase/config';
 import MyCamera from '../components/MyCamera';
 
@@ -48,6 +48,7 @@ class Addpost extends Component {
  
     render(){
         return(
+          <ScrollView>
           <View style={styles.view1}>
             <View style={styles.contenedor}>
                 <Text style={styles.title}>Crear posteo</Text> <br></br>
@@ -90,7 +91,7 @@ class Addpost extends Component {
            }
             </View>
          </View>
-      
+         </ScrollView>
        
         )
     }
@@ -199,8 +200,9 @@ const styles = StyleSheet.create({
   },
 
   view1:{
-   flex:1,
+  flex:1,
   
+   
 
   },
 
