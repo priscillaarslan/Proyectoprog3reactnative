@@ -15,13 +15,13 @@ export default function App() {
 
 const styles = StyleSheet.create({
   contenedor:{
-      width:500, 
+      width:450, 
       justifyContent: 'center', 
       marginLeft: 500, 
       marginTop: 50, 
       marginBottom: 50, 
       borderWidth: 2, 
-      borderColor: 'red',
+      borderColor: 'black',
    
   
   }, 

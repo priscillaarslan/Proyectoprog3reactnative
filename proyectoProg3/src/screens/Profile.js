@@ -81,9 +81,7 @@ class Profile extends Component {
                     <Image  style={styles.imagen} source={{uri:`${this.state.usuario[0]?.data.foto}`}}  resizeMode='contain'      />
                 }
                 <Text  style={styles.bienvenido}>Bienvenido {this.state.usuario[0]?.data.email} tambien conocido como {this.state.usuario[0]?.data.nombre}</Text>
-                <Text style={styles.biografia}>Biografia: {this.state.usuario[0]?.data.biografia} </Text>
-                <Text style={styles.info}>Cantidad total de posteos:{this.state.post?.length} </Text>
-                <Text style={styles.info}>Estos son tus posteos : </Text>
+                <Text style={styles.biografia}><text style={styles.biografia2}>Biografia:</text>{this.state.usuario[0]?.data.biografia}<br></br><text style={styles.biografia2}>Total de posteos:</text> {this.state.post?.length} <br></br><text style={styles.biografia2}>Estos son tus posteos:</text> </Text>
                 {this.state.post?.length==0?<Text>Aun no hay posteos, subi alguno</Text>:  <FlatList data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
                 >
                     
@@ -111,12 +109,14 @@ const styles = StyleSheet.create({
     
     imagen:{
         width:300,
-        height:100,
+        height:200,
         alignContent:"center",
         marginVertical:10,
         objectFit: "cover",
-        marginRight: 20,
+        marginRight: 100,
         borderRadius: 50,
+        width: 400, 
+        height: 300,
 
     },
     btnDeslogueo: {
@@ -134,7 +134,8 @@ const styles = StyleSheet.create({
         width: 400, 
         fontWeight: '400',
         fontFamily: 'Helvetica Neue',
-        marginRight: 80, 
+        marginRight: 20, 
+       
          },
 
     perfil:{
@@ -142,26 +143,31 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: 'rgba(135, 206, 235, 0.5)',
         flex: 1, 
-        width: 550, 
-        height: 400
+        width: 450, 
+        height: 300, 
+        fontFamily: 'Helvetica Neue',
     }, 
 
     biografia:{
         marginTop: 20, 
         fontSize: 14, 
-        color: 'rgb(255,255,255)',
+        color: 'black',
+        marginRight: 240, 
+        fontFamily: 'Helvetica Neue',
     }, 
 
     texto:{
-        color: 'rgb(255,255,255)',
+        color: 'black',
         marginTop: 20,
-        fontSize: 40, 
-        fontWeight: 600,
+        fontSize: 25, 
+        fontWeight: 'lighter',
+        fontFamily: 'billabong',
     }, 
 
-    info:{
-      fontSize: 15, 
-        
+  
+    biografia2:{
+        fontWeight: 'bold',
+        fontFamily: 'Helvetica Neue',
     }
     
     

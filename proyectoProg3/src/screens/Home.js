@@ -85,12 +85,13 @@ const styles = StyleSheet.create({
     titulo2:{
         fontWeight: 600,
         color: 'black',
-        fontSize: 20,
+        fontSize: 18,
         marginRight: 320,
         marginTop: 15, 
         fontFamily: 'Helvetica Neue',
         fontWeight: '400',
         marginLeft: 15,
+        width: 200
 
     }, 
 

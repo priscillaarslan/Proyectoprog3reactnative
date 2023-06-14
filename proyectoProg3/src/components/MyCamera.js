@@ -121,8 +121,9 @@ const style = StyleSheet.create({
     camera: {
         top: 0,
         left: 0,
-        width: '100%',
-        height: 500,
+        width: '100',
+        height: 200,
+        marginRight: 50, 
     },
     btnCapture: {
         position: 'absolute', 

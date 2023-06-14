@@ -133,17 +133,18 @@ class Card extends Component {
 const styles = StyleSheet.create({
     
     imagen:{
-        width: 200,
-        height:250,
+        width: 300,
+        height:200,
         alignContent:"center",
         marginVertical:10,
+        marginLeft: 60, 
     },
     autor:{
         fontSize: 15,
         color: "black",
         flexDirection: 'row',
         flex: 2,
-        width: '100%',
+        width: '100',
         fontWeight: '400', 
         fontFamily: 'Helvetica Neue', 
         marginRight: 50,
