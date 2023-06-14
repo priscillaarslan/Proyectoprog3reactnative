@@ -91,24 +91,33 @@ class Registro extends Component {
              onChangeText={texto=>this.setState({biografia:texto})}
              value= {this.state.biografia}
              />
-                < TouchableOpacity style={styles.camara2} onPress={()=>this.camera()}> 
+             <View style={styles.camara}>
+                < TouchableOpacity  onPress={()=>this.camera()}> 
              <Text style={styles.texto5}> Agregar foto al perfil </Text>
-           </TouchableOpacity>
+           </TouchableOpacity >
            {this.state.camara ? <CameraRegistro onImageUpload={(url) => this.onImageUpload(url)} /> : <Text></Text>}
              <Text>{this.state.errores}</Text>
+             </View>
            {
             this.state.email == '' || this.state.contraseña == ''|| this.state.nombre == '' ?
+           
            < TouchableOpacity>
-             <Text style={styles.texto6}> Registrarme </Text>
+            
+             <Text  style={styles.texto6} > Registrarme </Text>
+ 
            </TouchableOpacity>:
               <  TouchableOpacity onPress={()=>this.registrar(this.state.email,this.state.contraseña,this.state.nombre,this.state.biografia,this.state.foto)}> 
-              <Text style={styles.texto7}> Registrarme </Text>
+              <Text  style={styles.texto7}> Registrarme </Text>
             </TouchableOpacity>
            }
-<Text style={styles.texto8} onPress={() => this.props.navigation.navigate("Login")}> Ya tienes cuenta. Anda al login</Text>
+    
+
+<Text style={styles.texto7} onPress={() => this.props.navigation.navigate("Login")}> Ya tienes cuenta. Anda al login</Text>
          </View>
-       
+
         )
+     
+        
     }
 }
 
@@ -116,57 +125,96 @@ class Registro extends Component {
 const styles = StyleSheet.create({
 
 contenedor:{
-    backgroundColor: 'rgba(135, 206, 235, 0.5)',
     flex: 1,
-    color: 'black',
-    padding: 15,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%'
+    backgroundColor: 'rgba(135, 206, 235, 0.5)',
+    color: 'rgb(255,255,255)',
+    width: 500, 
+    marginLeft: 480,
+    height: '100%'
+ 
 }, 
 texto:{
-    fontWeight: 600,
-       color: 'black',
-    fontSize: 24,
-    textAlign: 'center', 
+    backgroundColor: 'white',
+    padding: 10,
+    fontSize: 16,
+    marginVertical: 10,
+    fontColor: 'black',
+    height: 50,
+    bottom: 0,
+    width:  '80%',
+    borderRadius: 10, 
+    marginLeft: 40, 
+    marginTop: 20,  
    
 },
 
+camara: {
+    width: 200, 
+    height: 200, 
+    marginLeft: 110, 
+
+},
+
 texto2:{
-    fontWeight: 600,
-    color: 'black',
-    fontSize: 24,
-    textAlign: 'center', 
-    marginTop: 10
+    backgroundColor: 'white',
+    padding: 10,
+    fontSize: 16,
+    marginVertical: 10,
+    fontColor: 'black',
+    height: 50,
+    bottom: 0,
+    width:  '80%',
+    borderRadius: 10, 
+    marginLeft: 40, 
+    marginTop: 10, 
 },
 texto3:{
-    fontWeight: 600,
-    color: 'black',
-    fontSize: 24,
-    textAlign: 'center', 
-    marginTop: 10
+    backgroundColor: 'white',
+    padding: 10,
+    fontSize: 16,
+    marginVertical: 10,
+    fontColor: 'black',
+    height: 50,
+    bottom: 0,
+    width:  '80%',
+    borderRadius: 10, 
+    marginLeft: 40, 
+    marginTop: 10, 
 },
 texto4:{
-    fontWeight: 600,
-    color: 'black',
-    fontSize: 24,
-    textAlign: 'center', 
-    marginTop: 10
+    backgroundColor: 'white',
+    padding: 10,
+    fontSize: 16,
+    marginVertical: 10,
+    fontColor: 'black',
+    height: 50,
+    bottom: 0,
+    width:  '80%',
+    borderRadius: 10, 
+    marginLeft: 40, 
+    marginTop: 7, 
 },
 
 texto5:{
     fontWeight: 600,
     color: 'black',
-    fontSize: 24,
+    fontSize: 20,
     textAlign: 'center', 
-    marginTop: 10
+    marginTop: 7,
+    borderWidth: 2, 
+    width: 300, 
+
+    height: 30, 
 },
 texto6:{
-    fontWeight: 100,
+    fontWeight: 600,
     color: 'black',
     fontSize: 24,
     textAlign: 'center', 
-    marginTop: 10
+    marginTop: 10, 
+    borderWidth: 2, 
+    marginTop: 90
+
 },
 
 texto7:{
@@ -174,31 +222,26 @@ texto7:{
     color: 'black',
     fontSize: 24,
     textAlign: 'center', 
-    marginTop: 10
+    borderWidth: 2, 
+    marginTop: 10, 
+
+
+  
+
+
 },
 
 
-texto8:{
-    fontWeight: 600,
-    color: 'black',
-    fontSize: 24,
-    textAlign: 'center', 
-    marginTop: 10
-},
 
 titulo:{
     fontWeight: 600,
     color: 'black',
     fontSize: 40,
     textAlign: 'center', 
-    marginBottom: 50
+
 },
 
 
-camara2:{
-   width:300, 
-   height: 200, 
-},
 
 
 

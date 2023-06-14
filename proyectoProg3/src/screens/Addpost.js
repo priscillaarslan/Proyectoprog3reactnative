@@ -53,7 +53,7 @@ class Addpost extends Component {
                 <Text style={styles.title}>Crear posteo</Text> <br></br>
             
             
-             <TextInput style={styles.bordes}  style={styles.text1}
+             <TextInput style={styles.text1}  
              placeholder='Titulo' 
              keyboardType='default'
              onChangeText={texto=>this.setState({Titulo:texto})}
@@ -108,10 +108,6 @@ const styles = StyleSheet.create({
     marginLeft: 480,
       
 
-  },
-
-  imagen:{
-    width: 200
   },
 
   camara:{

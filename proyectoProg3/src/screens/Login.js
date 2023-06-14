@@ -76,51 +76,71 @@ class Login extends Component {
 const styles = StyleSheet.create({
     
     contenedor:{
-        backgroundColor: 'rgba(135, 206, 235, 0.5)',
         flex: 1,
+        backgroundColor: 'rgba(135, 206, 235, 0.5)',
         color: 'rgb(255,255,255)',
-        padding: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '100%'
+        width: 500, 
+        marginLeft: 480
+     
     },
 
 
     texto:{
-        fontWeight: 600,
-        color: 'rgb(255,255,255)',
-        fontSize: 24,
-        textAlign: 'center', 
+        backgroundColor: 'white',
+        padding: 10,
+        fontSize: 16,
+        marginVertical: 10,
+        fontColor: 'black',
+        height: 50,
+        bottom: 0,
+        width:  '80%',
+        borderRadius: 10, 
+        marginLeft: 40, 
+        marginTop: 200, 
+
+
        
     },
 
     texto2:{
-        fontWeight: 600,
-        color: 'rgb(255,255,255)',
-        fontSize: 24,
-        textAlign: 'center', 
-        marginTop: 10
+        backgroundColor: 'white',
+        padding: 10,
+        fontSize: 16,
+        marginVertical: 10,
+        fontColor: 'black',
+        height: 50,
+        bottom: 0,
+        width:  '80%',
+        borderRadius: 10, 
+        marginLeft: 40, 
+        marginTop: 20, 
     },
     texto3:{
         fontWeight: 600,
-        color: 'rgb(255,255,255)',
+        color: 'black',
         fontSize: 24,
         textAlign: 'center', 
         marginTop: 10
     },
     texto3Desactivado:{
-        fontWeight: 100,
-        color: 'rgba(255,255,255,0.6)',
+        fontWeight: 600,
+        color: 'black',
         fontSize: 24,
         textAlign: 'center', 
-        marginTop: 10
+        marginTop: 10,
+        borderWidth: 2, 
+        width: 300, 
+        marginLeft:90, 
     },
     texto4:{
         fontWeight: 600,
-        color: 'rgb(255,255,255)',
+        color: 'black',
         fontSize: 24,
         textAlign: 'center', 
-        marginTop: 10
+        marginTop: 10,
+        borderWidth: 2, 
+        width: 300, 
+        marginLeft:90, 
     },
 
    
