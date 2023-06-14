@@ -97,11 +97,11 @@ class Addpost extends Component {
 
 const styles = StyleSheet.create({
   contenedor:{
+    flex: 1,
     backgroundColor: 'rgba(135, 206, 235, 0.5)',
-    flex:1,
-      color: 'rgb(255,255,255)',
-      padding: 15,
-      justifyContent: 'center',
+    color: 'rgb(255,255,255)',
+    padding: 15,
+    justifyContent: 'center'
       
 
   },
@@ -159,15 +159,8 @@ const styles = StyleSheet.create({
   },
 
   boton:{
-    border: 'solid',
     borderWidth: 1,
-    borderColor: 'rgb(150,150,150)',
-    borderLeftColor: 'white',
-    borderTopColor: 'white',
-    borderRightColor: 'white',
-    borderBottomColor: 'white',
-    borderTopRightRadius: 8,
-    borderBottomLeftRadius: 8,
+    borderColor: 'black',
     borderStyle: 'solid',
     padding: 7.5,
     width: '30%',

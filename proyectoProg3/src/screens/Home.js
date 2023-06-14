@@ -38,7 +38,6 @@ class Home extends Component {
         console.log(this.state.post)
         return(
            
-           
             <View style={styles.home}><Text style={styles.titulo}>Instagram</Text>
                 <Text style={styles.titulo2}>Nuevos posts: </Text>
                 {this.state.loader?
@@ -47,13 +46,9 @@ class Home extends Component {
                     
                 </FlatList>: <ActivityIndicator size="large" color="black"/>}
                 </View>
-              
                 
-         
-     
-      
-       
-          
+              
+        
         )
     }
 }
@@ -64,9 +59,13 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'rgba(135, 206, 235, 0.5)',
         color: 'rgb(255,255,255)',
-       
+        width: 500, 
+        marginLeft: 480
+     
+
     
     }, 
+
 
     titulo:{
         fontWeight: 600,

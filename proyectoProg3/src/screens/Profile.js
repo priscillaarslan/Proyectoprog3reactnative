@@ -75,6 +75,7 @@ class Profile extends Component {
         console.log(this.state.usuario)
         return(
             <View style={styles.perfil} >
+        
                 <Text style={styles.texto}>Soy la pagina del Perfil</Text>
                 {
                     this.state.usuario[0]?.data.foto == ""? <Text></Text>:
@@ -99,26 +100,31 @@ class Profile extends Component {
                         </View>
                     
                     {this.state.errorAlEliminar == false ? <Text> </Text> :  <Text> Esta es una operación sensible, volvé a iniciar sesión para eliminar tu perfil</Text>}
-         </View>
-       
+                    </View>
+      
           
         )
     }
 } 
 const styles = StyleSheet.create({
     
+    perfil:{
+        flex: 1,
+        backgroundColor: 'rgba(135, 206, 235, 0.5)',
+        color: 'rgb(255,255,255)',
+        width: 500, 
+        marginLeft: 480
+    }, 
+
     imagen:{
-        width:300,
-        height:200,
-        alignContent:"center",
-        marginVertical:10,
-        objectFit: "cover",
-        marginRight: 100,
-        borderRadius: 50,
-        width: 400, 
-        height: 300,
+        width: 100,
+        height: 100,
 
     },
+
+
+
+
    
     bienvenido:{
         fontSize: 15,
@@ -128,23 +134,15 @@ const styles = StyleSheet.create({
         marginTop: 20,
         fontWeight: '400',
         fontFamily: 'Helvetica Neue',
-        marginRight: 20, 
+       
        
          },
 
-    perfil:{
-        display: "flex",
-        alignItems: "center",
-        backgroundColor: 'rgba(135, 206, 235, 0.5)',
-        flex: 1, 
-        fontFamily: 'Helvetica Neue',
-    }, 
+   
 
     biografia:{
-        marginTop: 20, 
-        fontSize: 14, 
-        color: 'black',
-        marginRight: 240, 
+     
+       
         fontFamily: 'Helvetica Neue',
     }, 
 
@@ -180,7 +178,7 @@ const styles = StyleSheet.create({
     view1:{
         height: 60, 
         marginTop: 10,
-        marginLeft: 300,
+       
         
     },
     

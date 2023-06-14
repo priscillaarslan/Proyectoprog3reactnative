@@ -136,18 +136,15 @@ const styles = StyleSheet.create({
         width: 300,
         height:200,
         alignContent:"center",
-        marginVertical:10,
-        marginLeft: 60, 
+
     },
     autor:{
         fontSize: 15,
         color: "black",
-        flexDirection: 'row',
         flex: 2,
-        width: '100',
         fontWeight: '400', 
         fontFamily: 'Helvetica Neue', 
-        marginRight: 50,
+  
 
     },
 
@@ -168,8 +165,9 @@ const styles = StyleSheet.create({
         padding: 15,
         borderBottomWidth: 1,
         borderColor: 'rgb(180,180,180)',
-        borderStyle: 'solid',
-       justifyContent: 'center'
+       justifyContent: 'center', 
+       marginLeft: 100, 
+    
       
 
     }, 
