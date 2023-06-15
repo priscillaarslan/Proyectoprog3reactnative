@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   title:{
     fontSize: 22,
     fontWeight: '600',
-    fontFamily:'Helvetica Neue', 
+    FontFamily:'Helvetica Neue', 
     marginTop: 20, 
     marginLeft: 20, 
 
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 10,
     textAlign: 'right',
-    fontFamily:'Helvetica Neue', 
+    FontFamily:'Helvetica Neue', 
 
 
   },
@@ -149,16 +149,16 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 10,
     textAlign: 'right',
-    fontFamily:'Helvetica Neue', 
+    FontFamily:'Helvetica Neue', 
 
 
   },
 
 
   text3:{
-    fontSize: 22,
+    FontSize: 22,
     fontWeight: '400',
-    fontFamily:'Helvetica Neue', 
+    FontFamily:'Helvetica Neue', 
     marginLeft: 20, 
   
 
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 10,
     textAlign: 'right',
-    fontFamily:'Helvetica Neue', 
+    FontFamily:'Helvetica Neue', 
     width: 150, 
     backgroundColor: 'rgba(245, 245, 220, 0.5)',
    
@@ -185,7 +185,7 @@ const styles = StyleSheet.create({
   text5:{
     fontSize: 22,
     fontWeight: '400',
-    fontFamily:'Helvetica Neue', 
+    FontFamily:'Helvetica Neue', 
     marginLeft: 20, 
     
 

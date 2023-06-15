@@ -76,7 +76,7 @@ class Profile extends Component {
         return(
             <View style={styles.perfil} >
         
-                <Text style={styles.texto}>Soy la pagina del Perfil</Text>
+                <Text style={styles.texto}>Perfil</Text>
                 {
                     this.state.usuario[0]?.data.foto == ""? <Text></Text>:
                     <Image  style={styles.imagen} source={{uri:`${this.state.usuario[0]?.data.foto}`}}  resizeMode='contain'      />
@@ -128,14 +128,14 @@ const styles = StyleSheet.create({
 
    
     bienvenido:{
-        fontSize: 15,
+        FontSize: 15,
        alignContent: 'center',
         fontWeight: "bold",
         color: 'black',
         marginTop: 20,
         fontWeight: '400',
         marginLeft:  20, 
-        fontFamily: 'Helvetica Neue',
+        FontFamily: 'Helvetica Neue'
        
        
          },
@@ -144,41 +144,40 @@ const styles = StyleSheet.create({
 
     biografia:{
         marginLeft:  20, 
-       
-        fontFamily: 'Helvetica Neue',
+        FontFamily: 'Helvetica Neue',
     }, 
 
     texto:{
         color: 'black',
         marginTop: 20,
-        fontSize: 25, 
+        FontSize: 25, 
         fontWeight: 'lighter',
-        fontFamily: 'billabong',
+        FontFamily: 'Helvetica Neue',
         marginLeft: 100, 
     }, 
 
   
     biografia2:{
         fontWeight: 'bold',
-        fontFamily: 'Helvetica Neue',
+        FontFamily: 'Helvetica Neue',
         marginLeft:  20, 
     }, 
 
     info:{
         fontWeight: '400',
-        fontFamily: 'Helvetica Neue',
+        FontFamily: 'Helvetica Neue',
         marginLeft:  20, 
     }, 
 
     
     
     textoinfo:{
-        fontSize: 15, 
-        fontFamily:'Helvetica Neue', 
+        FontSize: 15, 
+        FontFamily:'Helvetica Neue', 
         fontWeight: '700', 
         marginTop: 5, 
         marginLeft:  20, 
-
+      
 
     },
     view1:{

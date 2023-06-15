@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput,TouchableOpacity, StyleSheet} from 'react-native';  
+import { View, Text, TextInput,TouchableOpacity, StyleSheet, ScrollView} from 'react-native';  
 import {auth, db} from '../firebase/config';
 import CameraRegistro from '../components/CameraRegistro';
 
@@ -65,6 +65,7 @@ class Registro extends Component {
     }
     render(){
         return(
+            <ScrollView>
             <View style={styles.contenedor}>
                    <Text style={styles.titulo} > REGISTRO </Text>
              <TextInput style={styles.texto} 
@@ -114,7 +115,7 @@ class Registro extends Component {
 
 <Text style={styles.texto7} onPress={() => this.props.navigation.navigate("Login")}> Ya tienes cuenta. Anda al login</Text>
          </View>
-
+         </ScrollView>
         )
      
         
@@ -152,6 +153,7 @@ camara: {
     width: 200, 
     height: 200, 
     marginLeft: 110, 
+    marginEnd: 100,
 
 },
 
@@ -213,7 +215,8 @@ texto6:{
     textAlign: 'center', 
     marginTop: 10, 
     borderWidth: 2, 
-    marginTop: 90
+    marginTop: 90,
+    marginEnd:100,
 
 },
 

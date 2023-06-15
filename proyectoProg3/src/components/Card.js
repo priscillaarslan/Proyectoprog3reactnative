@@ -88,7 +88,7 @@ class Card extends Component {
                     this.props.data.data.Foto == ''? <Text></Text>:
                     <Image  style={styles.imagen} source={{uri:`${this.props.data.data.Foto}`}}  resizeMode='contain'      />
                 }
-                <Text style={styles.text}>nombre del post: <text style={styles.text2}>{this.props.data.data.Titulo} </text> </Text>
+                <Text style={styles.text}> Nombre del post: <text style={styles.text2}>{this.props.data.data.Titulo} </text> </Text>
                 
                 {this.state.likeado ? <TouchableOpacity onPress={() => this.like()}>
                 <FontAwesome
@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
         color: "black",
         flex: 2,
         fontWeight: '400', 
-        fontFamily: 'Helvetica Neue', 
+        FontFamily: 'Helvetica Neue',
   
 
     },
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
 
     text:{
         fontWeight: 'bold', 
-        fontFamily: 'Helvetica Neue', 
+        FontFamily: 'Helvetica Neue',
         
     },
 
@@ -173,13 +173,13 @@ const styles = StyleSheet.create({
     }, 
 
     info:{
-        fontFamily:'Helvetica Neue', 
+        FontFamily: 'Helvetica Neue',
         fontWeight: 500, 
         fontSize: 15, 
     },
 
     info1:{
-        fontFamily:'Helvetica Neue', 
+        FontFamily: 'Helvetica Neue',
         fontWeight: '800', 
         fontSize: 15, 
     },
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     }, 
 
     info3:{
-        fontFamily:'Helvetica Neue', 
+        FontFamily: 'Helvetica Neue', 
         fontSize: 15, 
         fontWeight:'300'
     },

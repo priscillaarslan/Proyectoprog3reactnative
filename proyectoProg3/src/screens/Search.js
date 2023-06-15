@@ -47,7 +47,7 @@ render(){
     console.log(this.state.usuario)
     console.log(this.state.usuariosFiltrados)
     return(
-        <View style={styles.buscador2}>
+        <View style={{flex:1}}>
         <View style={styles.buscador}>
         <Text style={styles.texto}> Esta es la pagina de buscar perfil </Text>
         <TextInput style={styles.boton}
@@ -74,7 +74,9 @@ render(){
 } 
 
 const styles = StyleSheet.create({
-
+     buscador2:{
+        backgroundColor: 'rgba(135, 206, 235, 0.5)',
+     },
     buscador:{
         backgroundColor: 'rgba(135, 206, 235, 0.5)',
         color: 'rgb(255,255,255)',
