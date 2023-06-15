@@ -48,7 +48,7 @@ class Addpost extends Component {
  
     render(){
         return(
-          <ScrollView>
+          
           <View style={styles.view1}>
             <View style={styles.contenedor}>
                 <Text style={styles.title}>Crear posteo</Text> <br></br>
@@ -91,7 +91,7 @@ class Addpost extends Component {
            }
             </View>
          </View>
-         </ScrollView>
+         
        
         )
     }
@@ -113,6 +113,7 @@ const styles = StyleSheet.create({
 
   camara:{
     marginLeft: 20, 
+    
   },
 
   title:{
@@ -202,7 +203,7 @@ const styles = StyleSheet.create({
   view1:{
   flex:1,
   
-   
+   overflow:'scroll'
 
   },
 
