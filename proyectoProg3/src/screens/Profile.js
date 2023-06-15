@@ -149,11 +149,12 @@ const styles = StyleSheet.create({
 
     texto:{
         color: 'black',
-        marginTop: 20,
-        FontSize: 25, 
+      
+        FontSize: 100, 
         fontWeight: 'lighter',
         FontFamily: 'Helvetica Neue',
-        marginLeft: 100, 
+        
+
     }, 
 
   

@@ -59,6 +59,8 @@ class MyCamera extends Component{
                             this.props.onImageUpload(url);
                             this.setState({
                                 photo:'',
+                                
+
                                
                                 showCamera:false
                             })

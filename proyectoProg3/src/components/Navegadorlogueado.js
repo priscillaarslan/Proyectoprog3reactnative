@@ -23,7 +23,7 @@ class NavegadorLogueado extends Component {
             <Tab.Screen name='Profile' component={Profile} options={{ headerShown: false,
            tabBarIcon: () => <AntDesign name="profile" color="black" size={24} />  }} />
            <Tab.Screen name='Busqueda usuario' component={Search} options={{ headerShown: false,
-           tabBarIcon: () => <AntDesign name="profile" color="black" size={24} />  }} />
+           tabBarIcon: () => <AntDesign name="search1" color="black" size={24} />  }} />
           
         </Tab.Navigator>
         )

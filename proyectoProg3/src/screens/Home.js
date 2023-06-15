@@ -38,7 +38,7 @@ class Home extends Component {
         console.log(this.state.post)
         return(
            
-            <View style={styles.home}><Text style={styles.titulo}>Instagram</Text>
+            <View style={styles.home}><Text style={styles.titulo}>We Post!</Text>
                 <Text style={styles.titulo2}>Nuevos posts: </Text>
                 {this.state.loader?
                 <FlatList  style={styles.flatList} data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
