@@ -56,18 +56,18 @@ class OthersProfile extends Component {
     render(){
       
         return(
-            <View>
-                    <Text onPress={() => this.props.navigation.navigate("Home")}>Volver al home</Text>
+            <View  style={styles.contenedor}>
+                    <Text style={styles.texto2} onPress={() => this.props.navigation.navigate("Home")}>Volver al home</Text>
 
                 {
                     this.state.usuario[0]?.data.foto ==""? <Text></Text>:
-                    <Image  style={styles.imagen} source={{uri:`${this.state.usuario[0]?.data.foto}`}}  resizeMode='contain'      />
+                 <View style={styles.imagen1}>  <Image style={styles.imagen} source={{uri:`${this.state.usuario[0]?.data.foto}`}}  resizeMode='contain' /></View>
                 }
-                <Text>Bienvenido al perfil de {this.state.usuario[0]?.data.email} tambien conocido como {this.state.usuario[0]?.data.nombre}</Text>
-                <Text>Biografia: {this.state.usuario[0]?.data.biografia} </Text>
-                <Text>Cantidad total de posteos:{this.state.post?.length} </Text>
-                <Text>Posteos del usuario : </Text>
-                {this.state.post?.length==0?<Text>Este usuario no tiene posteos</Text>:  <FlatList data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
+                <Text style={styles.texto}>Bienvenido al perfil de {this.state.usuario[0]?.data.email} tambien conocido como {this.state.usuario[0]?.data.nombre}</Text>
+                <Text style={styles.texto1}>Biografia: {this.state.usuario[0]?.data.biografia} </Text>
+                <Text style={styles.texto1}>Cantidad total de posteos:{this.state.post?.length} </Text>
+                <Text style={styles.texto1}>Posteos del usuario : </Text>
+                {this.state.post?.length==0?<Text >Este usuario no tiene posteos</Text>:  <FlatList data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
                 >
                     
                 </FlatList> }
@@ -83,12 +83,58 @@ class OthersProfile extends Component {
 }
 const styles = StyleSheet.create({
     
-    imagen:{
-        width:"100%",
-        height:250,
-        alignContent:"center",
-        marginVertical:10,
+      
+    imagen1:{
+        width: 100, 
+        height: 100,
+        marginRight: 100,
     },
+
+    contenedor:{
+        flex: 1,
+        backgroundColor: 'rgba(135, 206, 235, 0.5)',
+        color: 'rgb(255,255,255)',
+        width: 500, 
+        marginLeft: 480
+    },
+
+texto: {
+    fontWeight: 1000,
+        color: 'black',
+        fontSize: 16,
+        marginLeft: 10, 
+        fontFamily: 'Helvetica Neue',
+        fontWeight: '400',
+        marginTop: 10
+ 
+
+    },
+
+    texto1: {
+        fontWeight: 600,
+            color: 'black',
+            fontSize: 14,
+            marginLeft: 10, 
+            fontFamily: 'Helvetica Neue',
+            fontWeight: '400',
+            marginTop: 10
+        
+        },
+
+
+    texto2: {
+        fontWeight: 600,
+            color: 'black',
+            fontSize: 14,
+            fontFamily: 'Helvetica Neue',
+            fontWeight: '400',
+            borderWidth: 1, 
+            width: 100, 
+            marginTop: 20, 
+            marginLeft: 10, 
+        
+        },
+    
 })
 
 
