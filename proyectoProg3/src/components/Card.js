@@ -105,9 +105,9 @@ class Card extends Component {
                 </TouchableOpacity>} 
                 <Text style={styles.info}>likes: <text  style={styles.info3}> {this.props.data.data.Likes.length}</text> </Text>
               
-                <Text style={styles.info}>descripcion del posteo: <text  style={styles.info3}>{this.props.data.data.Descripcion}</text> </Text>
+                <Text style={styles.info}> Descripcion del posteo: <text  style={styles.info3}>{this.props.data.data.Descripcion}</text> </Text>
 
-               <Text style={styles.info}>ultimos comentarios</Text>
+               <Text style={styles.info}> Ultimos comentarios</Text>
                {this.props.data.data.Comentarios.length==0?<Text style={styles.info}>no existen comentarios para este posteo</Text>:
                 <FlatList data={this.props.data.data.Comentarios.slice(-4)} keyExtractor={(data)=>data.createdAt} renderItem={({item})=>  <Text style={styles.info} >autor:{item.autor} texto del mensaje: {item.textoComentario}</Text> }
                 >

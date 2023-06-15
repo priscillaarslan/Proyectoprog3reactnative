@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
         fontSize: 40,
         textAlign: 'center', 
         marginTop: 20, 
-        fontFamily: 'billabong',
+        FontFamily: 'billabong',
         fontWeight: 'lighter',
         
         
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginRight: 320,
         marginTop: 15, 
-        fontFamily: 'Helvetica Neue',
+        FontFamily: 'Helvetica Neue',
         fontWeight: '400',
         marginLeft: 15,
         width: 200
