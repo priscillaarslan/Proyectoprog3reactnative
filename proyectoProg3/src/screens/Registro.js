@@ -16,13 +16,7 @@ class Registro extends Component {
             errores:''
             }
     }
-    componentDidMount() {
-        auth.onAuthStateChanged((user) => {
-            if (user) {
-                this.props.navigation.navigate("NavegadorLogueado")
-            }
-        })
-    }
+   
     registrar(email,contraseña,nombre,biografia,foto) {
         auth.createUserWithEmailAndPassword(email, contraseña)
         .then(res => {
@@ -104,16 +98,16 @@ class Registro extends Component {
            
            < TouchableOpacity>
             
-             <Text  style={styles.texto6} > Registrarme </Text>
+             <Text  style={styles.texto7} > Registrarme </Text>
  
            </TouchableOpacity>:
               <  TouchableOpacity onPress={()=>this.registrar(this.state.email,this.state.contraseña,this.state.nombre,this.state.biografia,this.state.foto)}> 
-              <Text  style={styles.texto7}> Registrarme </Text>
+              <Text  style={styles.texto6}> Registrarme </Text>
             </TouchableOpacity>
            }
     
 
-<Text style={styles.texto7} onPress={() => this.props.navigation.navigate("Login")}> Ya tienes cuenta. Anda al login</Text>
+<Text style={styles.texto6} onPress={() => this.props.navigation.navigate("Login")}> Ya tienes cuenta. Anda al login</Text>
          </View>
          </ScrollView>
         )
@@ -222,15 +216,14 @@ texto6:{
 
 texto7:{
     fontWeight: 600,
-    color: 'black',
+    color: 'gray',
     fontSize: 24,
     textAlign: 'center', 
-    borderWidth: 2, 
     marginTop: 10, 
-
-
-  
-
+    borderWidth: 2, 
+    marginTop: 90,
+    marginEnd:100,
+   
 
 },
 

@@ -24,7 +24,16 @@ class Addpost extends Component {
       Comentarios:[],
       Foto: this.state.Foto,
       CreatedAt: Date.now(),
-        }) .then(()=>{
+        })  .then(()=>{
+          this.setState({
+            Titulo:'',
+            Descripcion:'',
+            Foto:'',
+            errores:'',
+            camara:false
+            })
+        })
+        .then(()=>{
           this.props.navigation.navigate('Home')
         })
         .catch(error =>

@@ -9,7 +9,8 @@ constructor(){
     this.state={
         usuario: [], 
         usuarioBuscado:'',
-        usuariosFiltrados:[],
+        usuariosFiltradosNombre:[],
+        usuariosFiltradosEmail:[],
     }
 }
 
@@ -33,9 +34,13 @@ busqueda(texto){
     this.setState({
         usuarioBuscado: texto
     })
-    let usuariosFiltrados = this.state.usuario.filter((usuario)=>usuario.data.nombre.toLowerCase().includes(texto.toLowerCase())) 
+    let usuariosFiltradosNombre = this.state.usuario.filter((usuario)=>usuario.data.nombre.toLowerCase().includes(texto.toLowerCase())) 
     this.setState({
-        usuariosFiltrados:usuariosFiltrados /*/ el primero usuario finltrado hace referencia al estado usuario filtrado se clara en la 12, y el otro hace referencia a la variable creada en la linea 36/*/
+        usuariosFiltradosNombre:usuariosFiltradosNombre /*/ el primero usuario finltrado hace referencia al estado usuario filtrado se clara en la 12, y el otro hace referencia a la variable creada en la linea 36/*/
+    })
+    let usuariosFiltradosEmail = this.state.usuario.filter((usuario)=>usuario.data.email.toLowerCase().includes(texto.toLowerCase())) 
+    this.setState({
+        usuariosFiltradosEmail:usuariosFiltradosEmail /*/ el primero usuario finltrado hace referencia al estado usuario filtrado se clara en la 12, y el otro hace referencia a la variable creada en la linea 36/*/
     })
 
     }
@@ -55,13 +60,19 @@ render(){
         keyboardType='default'
         onChangeText={texto=>this.busqueda(texto)}
         value= {this.state.usuarioBuscado}
-        />
-        {this.state.usuariosFiltrados.length==0&&this.state.usuarioBuscado!=''? <Text>No existen usuarios con ese nombre</Text>:<Text></Text>}
-         {this.state.usuarioBuscado!=''?<FlatList data={this.state.usuariosFiltrados} keyExtractor={(data)=>data.id} renderItem={({item})=> <TouchableOpacity onPress={() => this.props.navigation.navigate('OthersProfile',{email:item.data.email})}>  
+        /> 
+        <View>
+        {this.state.usuariosFiltradosNombre.length==0&&this.state.usuarioBuscado!=''? <Text>No existen usuarios con ese nombre</Text>:<Text></Text>}
+         {this.state.usuarioBuscado!=''?<FlatList data={this.state.usuariosFiltradosNombre} keyExtractor={(data)=>data.id} renderItem={({item})=> <TouchableOpacity onPress={() => this.props.navigation.navigate('OthersProfile',{email:item.data.email})}>  
                                     <Text>{item.data.nombre}</Text>
                 </TouchableOpacity>}
+         ></FlatList> : <Text></Text>} 
+          {this.state.usuariosFiltradosEmail.length==0&&this.state.usuarioBuscado!=''? <Text>No existen usuarios con ese email</Text>:<Text></Text>}
+         {this.state.usuarioBuscado!=''?<FlatList data={this.state.usuariosFiltradosEmail} keyExtractor={(data)=>data.id} renderItem={({item})=> <TouchableOpacity onPress={() => this.props.navigation.navigate('OthersProfile',{email:item.data.email})}>  
+                                    <Text>{item.data.email}</Text>
+                </TouchableOpacity>}
          ></FlatList> : <Text></Text>}
-        
+        </View>
          
         
         </View>
@@ -81,8 +92,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(135, 206, 235, 0.5)',
         color: 'rgb(255,255,255)',
         padding: 15,
-        justifyContent: 'center',
-        height: 300, 
+        height: 1000, 
     
 
 

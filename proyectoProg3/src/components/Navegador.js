@@ -16,8 +16,8 @@ class Navegador extends Component {
         return(
             <NavigationContainer>
             <Stack.Navigator>
-            <Stack.Screen name='Registro' component={Registro} options={{ headerShown: false }} />
             <Stack.Screen name='Login' component={Login} options={{ headerShown: false }} />
+            <Stack.Screen name='Registro' component={Registro} options={{ headerShown: false }} />
             <Stack.Screen name='NavegadorLogueado' component={NavegadorLogueado} options={{ headerShown: false }} />
             <Stack.Screen name='Comment' component={Comment} options={{ headerShown: false }} />
             <Stack.Screen name='OthersProfile' component={OthersProfile} options={{ headerShown: false }} />  

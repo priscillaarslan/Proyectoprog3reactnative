@@ -39,7 +39,7 @@ class Home extends Component {
         return(
            
             <View style={styles.home}><Text style={styles.titulo}>We Post!</Text>
-                <Text style={styles.titulo2}>Nuevos posts: </Text>
+                
                 {this.state.loader?
                 <FlatList  style={styles.flatList} data={this.state.post} keyExtractor={(data)=>data.id} renderItem={({item})=>< Card data={item}{...this.props}/>}
                 >
@@ -78,22 +78,6 @@ const styles = StyleSheet.create({
         
         
     },
-
-
-   
-    titulo2:{
-        fontWeight: 600,
-        color: 'black',
-        fontSize: 18,
-        marginRight: 320,
-        marginTop: 15, 
-        FontFamily: 'Helvetica Neue',
-        fontWeight: '400',
-        marginLeft: 15,
-        width: 200
-
-    }, 
-
 flatlist:{
 width: '100%'
 }

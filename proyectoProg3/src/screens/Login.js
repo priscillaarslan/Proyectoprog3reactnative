@@ -12,14 +12,13 @@ class Login extends Component {
             errores:''
             }
     }
-    /*/componentDidMount() {
+    componentDidMount() {
         auth.onAuthStateChanged((user) => {
             if (user) {
-                this.props.navigation.navigate("Home")
+                this.props.navigation.navigate("NavegadorLogueado")
             }
         })
-    }/*/
-
+    }
     loguear(email,contraseña) {
         auth.signInWithEmailAndPassword(email, contraseña)
         .then(res => {
